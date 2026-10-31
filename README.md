@@ -3,6 +3,8 @@
 A quick reference for **Travian Kingdoms** players (not Legends) – quests, tribes, buildings, walls, units.
 A static PWA that works offline on a phone next to the game. Project rules are in [CLAUDE.md](CLAUDE.md).
 
+**Live:** https://patrikliska.github.io/kingdoms-wiki/
+
 ## Development
 
 ```sh
@@ -13,6 +15,18 @@ pnpm test         # Vitest (domain logic + data checks)
 pnpm e2e          # Playwright (desktop + mobile); first time: pnpm exec playwright install chromium
 pnpm build        # production build + service worker
 ```
+
+## Deployment
+
+GitHub Actions ([`ci.yml`](.github/workflows/ci.yml)) runs lint, typecheck, unit and e2e tests on every
+pull request. A push to `master` additionally builds the site and publishes it to GitHub Pages.
+
+- The base path is set at build time with `BASE_PATH` (`/kingdoms-wiki/` for GitHub Pages, `/` by
+  default). Moving to our own domain only means building with `BASE_PATH=/`.
+- GitHub Pages has no SPA fallback, so the workflow copies `index.html` to `404.html`; deep links like
+  `/kingdoms-wiki/quests/siege10` then load the app. On our own server use a fallback rule instead
+  (nginx: `try_files $uri /index.html;`).
+- One-time repo setting: _Settings → Pages → Source: GitHub Actions_.
 
 ## Languages
 

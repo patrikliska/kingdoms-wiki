@@ -78,6 +78,12 @@ Rule: `domain/` must not import from `modules/` or from React. All calculations 
 - Accessibility: fully keyboard operable, visible focus, `prefers-reduced-motion`, `aria-pressed` on toggles.
 - Shareable URLs: every quest, building and unit has its own path (`/quests/siege10`, `/buildings/city-wall?lvl=20`). Filter state lives in query parameters.
 
+## Hosting
+
+- Now: **GitHub Pages** at `https://patrikliska.github.io/kingdoms-wiki/`, deployed by `.github/workflows/ci.yml` on every push to `master` (after lint, typecheck, unit and e2e tests pass).
+- Later: own domain on our virtual server (the one that already hosts patrikliska.dev).
+- The base path comes from the `BASE_PATH` env variable at build time (`/kingdoms-wiki/` on GitHub Pages, `/` on our own domain). Never hard-code absolute paths like `/favicon.svg` – use `import.meta.env.BASE_URL`; router paths are relative to the router `basename`.
+
 ## Code conventions
 
 - Function components and hooks; props typed explicitly, no `any`.
