@@ -67,6 +67,11 @@ jobs:
         env:
           # Project site: https://<owner>.github.io/<repo>/
           BASE_PATH: /${{ github.event.repository.name }}/
+          # Player reports. Without REPORT_ENDPOINT the form opens a pre-filled GitHub issue.
+          # Set both under Settings → Secrets and variables → Actions → Variables (see worker/README.md).
+          VITE_GITHUB_REPO: ${{ github.repository }}
+          VITE_REPORT_ENDPOINT: ${{ vars.REPORT_ENDPOINT }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
       # GitHub Pages serves 404.html for unknown paths, so deep links like
       # /kingdoms-wiki/quests/siege10 still load the app and the router takes over.
       - run: cp dist/index.html dist/404.html
