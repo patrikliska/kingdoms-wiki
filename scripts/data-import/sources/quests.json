@@ -1,0 +1,2400 @@
+{
+  "source": "https://support.kingdoms.com/en/articles/7-quests",
+  "verifiedAt": "2026-10-27",
+  "notes": [
+    "Extracted from the raw HTML of the official help-center article: three tables (Wren, Markus, Chieftain) with columns Title | Requires | Wood | Clay | Iron | Crop | Other. Source order preserved.",
+    "The article itself warns the list may differ slightly from what a player sees in-game.",
+    "The Requires column mixes prerequisite quests and role markers (\"King\"/\"Governor\"); markers mapped to `role`, quest names to `requires` ids. Short names in Requires (\"5 units\", \"Build Residence\", \"Residence level 5\", \"Embassy\", \"Train 3 Settlers\", \"All croplands to 7\") were resolved to the matching quest ids.",
+    "Tribe-specific rows (\"N units - Romans/Gauls/Teutons\", \"Train 3 Settlers - <tribe>\") were merged into one quest each with reward.rt. Tribe-specific scout quests (Equites Legati / Pathfinder / Scout) have different names, so they stay separate quests with an extra `tribe` field.",
+    "Empty or \"/\" resource cells stored as 0. Non-resource rewards (XP, gold, culture points, adventure points, silver, card items, building upgrades) are in reward.other verbatim.",
+    "Missing rows: \"Collect 3 Tributes\" (prerequisite of \"Collect 10 tributes\") and \"Sell 300 stolen goods\" (prerequisite of \"Sell 1000 stolen goods\"). Added with reward null; their prerequisites and positions are inferred.",
+    "\"Collect 300 tributes\" lacks the King marker; role set to king by analogy.",
+    "\"Sell a stolen good\" reward reads \"35 SP\" (all other stolen-goods quests give XP) - possibly a typo.",
+    "The prose mentions a King-only quest \"Build a Treasury\", but no such row exists in any table; it was NOT added (giver, reward and prerequisites unknown) - TODO verify in-game.",
+    "Quests can be done in any order, rewards can be claimed later, and quests whose condition is already met appear pre-completed.",
+    "Rewards go to the currently active village; building-upgrade rewards need the building there (Warehouse 10-11 -> 12, Residence/Palace 5-9 -> 10).",
+    "Task texts are paraphrases. \"Fields/Croplands to 10 in 5/12\" interpreted as \"in 5/12 villages\" - assumption. \"Croplands to level 1\" may mean one or all croplands - ambiguous."
+  ],
+  "quests": [
+    {
+      "id": "each1",
+      "giver": "wren",
+      "name": "One of each to 1",
+      "task": "Upgrade one Woodcutter, Clay Pit, Iron Mine and Cropland to level 1",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 150,
+        "clay": 150,
+        "iron": 100,
+        "crop": 50
+      }
+    },
+    {
+      "id": "gr1",
+      "giver": "wren",
+      "name": "Construct a Granary",
+      "task": "Build a Granary",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 500
+      }
+    },
+    {
+      "id": "cf1",
+      "giver": "wren",
+      "name": "Croplands to level 1",
+      "task": "Bring Croplands to level 1",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 260,
+        "clay": 350,
+        "iron": 260,
+        "crop": 70
+      }
+    },
+    {
+      "id": "wh1",
+      "giver": "wren",
+      "name": "Construct a Warehouse",
+      "task": "Build a Warehouse",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 300,
+        "clay": 300,
+        "iron": 300,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cp1",
+      "giver": "wren",
+      "name": "Clay Pits to level 1",
+      "task": "Bring Clay Pits to level 1",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 150,
+        "clay": 350,
+        "iron": 50,
+        "crop": 100
+      }
+    },
+    {
+      "id": "wc1",
+      "giver": "wren",
+      "name": "Woodcutters to level 1",
+      "task": "Bring Woodcutters to level 1",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 100,
+        "clay": 250,
+        "iron": 120,
+        "crop": 150
+      }
+    },
+    {
+      "id": "im1",
+      "giver": "wren",
+      "name": "Iron Mines to level 1",
+      "task": "Bring Iron Mines to level 1",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 260,
+        "clay": 210,
+        "iron": 60,
+        "crop": 150
+      }
+    },
+    {
+      "id": "allcf2",
+      "giver": "wren",
+      "name": "All Croplands to level 2",
+      "task": "Raise every Cropland to level 2",
+      "requires": [
+        "cf1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 1000,
+        "clay": 1400,
+        "iron": 1000,
+        "crop": 350
+      }
+    },
+    {
+      "id": "each2",
+      "giver": "wren",
+      "name": "One of each to 2",
+      "task": "Raise one field of each resource type to level 2",
+      "requires": [
+        "each1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 350,
+        "clay": 350,
+        "iron": 300,
+        "crop": 300
+      }
+    },
+    {
+      "id": "allrf2",
+      "giver": "wren",
+      "name": "All resource fields to 2",
+      "task": "Raise every resource field to level 2",
+      "requires": [
+        "each2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 975,
+        "clay": 1000,
+        "iron": 1050,
+        "crop": 750
+      }
+    },
+    {
+      "id": "allcf3",
+      "giver": "wren",
+      "name": "All Croplands to level 3",
+      "task": "Raise every Cropland to level 3",
+      "requires": [
+        "allcf2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 1200,
+        "clay": 1500,
+        "iron": 1200,
+        "crop": 500
+      }
+    },
+    {
+      "id": "allrf3",
+      "giver": "wren",
+      "name": "All resource fields to 3",
+      "task": "Raise every resource field to level 3",
+      "requires": [
+        "allrf2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 1200,
+        "clay": 1200,
+        "iron": 1000,
+        "crop": 750
+      }
+    },
+    {
+      "id": "wh3",
+      "giver": "wren",
+      "name": "Warehouse level 3",
+      "task": "Upgrade the Warehouse to level 3",
+      "requires": [
+        "wh1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 500,
+        "clay": 600,
+        "iron": 360,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cf5",
+      "giver": "wren",
+      "name": "One Cropland to level 5",
+      "task": "Raise a single Cropland to level 5",
+      "requires": [
+        "allcf3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 625,
+        "clay": 800,
+        "iron": 600,
+        "crop": 200
+      }
+    },
+    {
+      "id": "gr3",
+      "giver": "wren",
+      "name": "Granary level 3",
+      "task": "Upgrade the Granary to level 3",
+      "requires": [
+        "gr1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 300,
+        "clay": 400,
+        "iron": 250,
+        "crop": 0
+      }
+    },
+    {
+      "id": "each5",
+      "giver": "wren",
+      "name": "One of each to 5",
+      "task": "Raise one field of each resource type to level 5",
+      "requires": [
+        "each2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 2400,
+        "clay": 2400,
+        "iron": 2400,
+        "crop": 2400
+      }
+    },
+    {
+      "id": "gm1",
+      "giver": "wren",
+      "name": "Construct Grain Mill",
+      "task": "Build a Grain Mill",
+      "requires": [
+        "cf5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 1400
+      }
+    },
+    {
+      "id": "wh5",
+      "giver": "wren",
+      "name": "Warehouse level 5",
+      "task": "Upgrade the Warehouse to level 5",
+      "requires": [
+        "wh3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 700,
+        "clay": 800,
+        "iron": 400,
+        "crop": 0
+      }
+    },
+    {
+      "id": "allrf5",
+      "giver": "wren",
+      "name": "All resource fields to 5",
+      "task": "Raise every resource field to level 5",
+      "requires": [
+        "each5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 5000,
+        "clay": 5000,
+        "iron": 4000,
+        "crop": 4000
+      }
+    },
+    {
+      "id": "gr5",
+      "giver": "wren",
+      "name": "Granary level 5",
+      "task": "Upgrade the Granary to level 5",
+      "requires": [
+        "gr3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 300,
+        "clay": 400,
+        "iron": 250,
+        "crop": 0
+      }
+    },
+    {
+      "id": "allcf5",
+      "giver": "wren",
+      "name": "All Croplands to 5",
+      "task": "Raise every Cropland to level 5",
+      "requires": [
+        "cf5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 3000,
+        "clay": 4000,
+        "iron": 3000,
+        "crop": 1000
+      }
+    },
+    {
+      "id": "allrf7",
+      "giver": "wren",
+      "name": "All resource fields to 7",
+      "task": "Raise every resource field to level 7",
+      "requires": [
+        "allrf5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 11500,
+        "clay": 12000,
+        "iron": 8000,
+        "crop": 7000
+      }
+    },
+    {
+      "id": "allcf7",
+      "giver": "wren",
+      "name": "All Croplands to 7",
+      "task": "Raise every Cropland to level 7",
+      "requires": [
+        "allcf5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 5000,
+        "clay": 6000,
+        "iron": 5000,
+        "crop": 1500
+      }
+    },
+    {
+      "id": "wh10",
+      "giver": "wren",
+      "name": "Warehouse level 10",
+      "task": "Upgrade the Warehouse to level 10",
+      "requires": [
+        "wh5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "Warehouse level 12"
+      },
+      "note": "Reward raises the Warehouse in the active village to level 12, only if it is at level 10-11 there."
+    },
+    {
+      "id": "gr10",
+      "giver": "wren",
+      "name": "Granary level 10",
+      "task": "Upgrade the Granary to level 10",
+      "requires": [
+        "gr5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 500,
+        "clay": 550,
+        "iron": 400,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cp10",
+      "giver": "wren",
+      "name": "Clay Pit level 10",
+      "task": "Raise a Clay Pit to level 10",
+      "requires": [
+        "allrf7"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 5000,
+        "clay": 2500,
+        "iron": 5000,
+        "crop": 3333
+      }
+    },
+    {
+      "id": "wc10",
+      "giver": "wren",
+      "name": "Woodcutter level 10",
+      "task": "Raise a Woodcutter to level 10",
+      "requires": [
+        "allrf7"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 2500,
+        "clay": 6000,
+        "iron": 3500,
+        "crop": 4000
+      }
+    },
+    {
+      "id": "im10",
+      "giver": "wren",
+      "name": "Iron Mine to level 10",
+      "task": "Raise an Iron Mine to level 10",
+      "requires": [
+        "allrf7"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 6000,
+        "clay": 5000,
+        "iron": 1500,
+        "crop": 3500
+      }
+    },
+    {
+      "id": "by1",
+      "giver": "wren",
+      "name": "Build Brickyard",
+      "task": "Build a Brickyard",
+      "requires": [
+        "cp10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 1000,
+        "iron": 0,
+        "crop": 0
+      }
+    },
+    {
+      "id": "sm1",
+      "giver": "wren",
+      "name": "Build Sawmill",
+      "task": "Build a Sawmill",
+      "requires": [
+        "wc10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 1000,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0
+      }
+    },
+    {
+      "id": "if1",
+      "giver": "wren",
+      "name": "Build Iron Foundry",
+      "task": "Build an Iron Foundry",
+      "requires": [
+        "im10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 1000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cf10",
+      "giver": "wren",
+      "name": "Cropland level 10",
+      "task": "Raise a Cropland to level 10",
+      "requires": [
+        "allcf7"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 4500,
+        "clay": 5500,
+        "iron": 4500,
+        "crop": 1000
+      }
+    },
+    {
+      "id": "allrf10",
+      "giver": "wren",
+      "name": "All resource fields to 10",
+      "task": "Raise every resource field to level 10",
+      "requires": [
+        "allrf7"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 30000,
+        "clay": 30000,
+        "iron": 20000,
+        "crop": 25000
+      }
+    },
+    {
+      "id": "allcf10",
+      "giver": "wren",
+      "name": "All Croplands to 10",
+      "task": "Raise every Cropland to level 10",
+      "requires": [
+        "cf10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 25000,
+        "clay": 30000,
+        "iron": 25000,
+        "crop": 7000
+      }
+    },
+    {
+      "id": "bk1",
+      "giver": "wren",
+      "name": "Build a Bakery",
+      "task": "Build a Bakery",
+      "requires": [
+        "cf10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 7000
+      }
+    },
+    {
+      "id": "allrf12",
+      "giver": "wren",
+      "name": "All resource fields to 12",
+      "task": "Raise every resource field to level 12",
+      "requires": [
+        "allrf10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 66000,
+        "clay": 66000,
+        "iron": 33000,
+        "crop": 44000
+      }
+    },
+    {
+      "id": "allcf12",
+      "giver": "wren",
+      "name": "All Croplands to 12",
+      "task": "Raise every Cropland to level 12",
+      "requires": [
+        "allcf10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 33000,
+        "clay": 35000,
+        "iron": 30000,
+        "crop": 10000
+      }
+    },
+    {
+      "id": "rf10x5",
+      "giver": "wren",
+      "name": "Fields to 10 in 5",
+      "task": "Have resource fields at level 10 in 5 villages",
+      "requires": [
+        "allrf10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 100000,
+        "clay": 100000,
+        "iron": 100000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cf10x5",
+      "giver": "wren",
+      "name": "Croplands to 10 in 5",
+      "task": "Have Croplands at level 10 in 5 villages",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 100000
+      }
+    },
+    {
+      "id": "rf10x12",
+      "giver": "wren",
+      "name": "Fields to 10 in 12",
+      "task": "Have resource fields at level 10 in 12 villages",
+      "requires": [
+        "rf10x5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 150000,
+        "clay": 150000,
+        "iron": 150000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cf10x12",
+      "giver": "wren",
+      "name": "Croplands to 10 in 12",
+      "task": "Have Croplands at level 10 in 12 villages",
+      "requires": [
+        "cf10x5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 150000
+      }
+    },
+    {
+      "id": "finishnow",
+      "giver": "wren",
+      "name": "Finish Immediately",
+      "task": "Use the \"finish immediately\" option on a construction order",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "3 Gold"
+      }
+    },
+    {
+      "id": "tutorial",
+      "giver": "markus",
+      "name": "Finish Tutorial",
+      "task": "Complete the tutorial",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 25,
+        "clay": 25,
+        "iron": 25,
+        "crop": 25
+      },
+      "note": "Requires and Other cells are \"/\" in the source."
+    },
+    {
+      "id": "rename",
+      "giver": "markus",
+      "name": "Rename your village",
+      "task": "Give your village a new name",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 50,
+        "clay": 75,
+        "iron": 25,
+        "crop": 100
+      }
+    },
+    {
+      "id": "units5",
+      "giver": "markus",
+      "name": "5 units",
+      "task": "Train 5 units",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 550,
+            "clay": 350,
+            "iron": 650,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 450,
+            "clay": 550,
+            "iron": 250,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 475,
+            "clay": 325,
+            "iron": 175,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "trib1",
+      "giver": "markus",
+      "name": "Collect a Tribute",
+      "task": "Collect tribute from a village in your kingdom once",
+      "requires": [],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "35 XP"
+      }
+    },
+    {
+      "id": "stolen1",
+      "giver": "markus",
+      "name": "Sell a stolen good",
+      "task": "Sell one stolen good",
+      "requires": [],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "35 SP"
+      },
+      "note": "Source reward is \"35 SP\" (other stolen-goods quests give XP); kept verbatim, possibly a typo for XP."
+    },
+    {
+      "id": "emb1",
+      "giver": "markus",
+      "name": "Build an Embassy",
+      "task": "Build an Embassy",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 150,
+        "clay": 100,
+        "iron": 120,
+        "crop": 60
+      }
+    },
+    {
+      "id": "animals",
+      "giver": "markus",
+      "name": "Catch animals",
+      "task": "Capture animals with your hero",
+      "requires": [
+        "adv3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 150,
+        "clay": 200,
+        "iron": 110,
+        "crop": 90
+      },
+      "note": "Prerequisite \"3 Adventures\" belongs to the Chieftain (cross-giver dependency)."
+    },
+    {
+      "id": "bar3",
+      "giver": "markus",
+      "name": "Barracks level 3",
+      "task": "Upgrade the Barracks to level 3",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 600,
+        "clay": 350,
+        "iron": 700,
+        "crop": 300
+      }
+    },
+    {
+      "id": "acad1",
+      "giver": "markus",
+      "name": "Build an Academy",
+      "task": "Build an Academy",
+      "requires": [
+        "bar3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "Card Item: Finish immediately"
+      }
+    },
+    {
+      "id": "trib3",
+      "giver": "markus",
+      "name": "Collect 3 Tributes",
+      "task": "Collect tributes 3 times",
+      "requires": [
+        "trib1"
+      ],
+      "role": "king",
+      "reward": null,
+      "note": "Not a row in the official table; only referenced as prerequisite of the next quest in the chain. Reward unknown; prerequisite and position inferred."
+    },
+    {
+      "id": "stolen3",
+      "giver": "markus",
+      "name": "Sell 3 stolen goods",
+      "task": "Sell 3 stolen goods",
+      "requires": [
+        "stolen1"
+      ],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "50 XP"
+      }
+    },
+    {
+      "id": "units25",
+      "giver": "markus",
+      "name": "25 units",
+      "task": "Train 25 units",
+      "requires": [
+        "units5"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 1500,
+            "clay": 900,
+            "iron": 1600,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 1050,
+            "clay": 1300,
+            "iron": 600,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 1200,
+            "clay": 1000,
+            "iron": 500,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "acad5",
+      "giver": "markus",
+      "name": "Academy level 5",
+      "task": "Upgrade the Academy to level 5",
+      "requires": [
+        "acad1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 1300,
+        "clay": 1000,
+        "iron": 600,
+        "crop": 300
+      }
+    },
+    {
+      "id": "smith3",
+      "giver": "markus",
+      "name": "Smithy level 3",
+      "task": "Upgrade the Smithy to level 3",
+      "requires": [
+        "acad5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 500,
+        "clay": 700,
+        "iron": 1000,
+        "crop": 300
+      }
+    },
+    {
+      "id": "stab1",
+      "giver": "markus",
+      "name": "Stable 1",
+      "task": "Build a Stable",
+      "requires": [
+        "smith3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 200,
+        "clay": 120,
+        "iron": 150,
+        "crop": 100
+      }
+    },
+    {
+      "id": "reseql",
+      "giver": "markus",
+      "name": "Research Equites Legati",
+      "task": "Research Equites Legati in the Academy",
+      "requires": [
+        "stab1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 600,
+        "clay": 500,
+        "iron": 200,
+        "crop": 0
+      },
+      "tribe": "roman"
+    },
+    {
+      "id": "respf",
+      "giver": "markus",
+      "name": "Research Pathfinder",
+      "task": "Research Pathfinder in the Academy",
+      "requires": [
+        "stab1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 700,
+        "clay": 500,
+        "iron": 300,
+        "crop": 0
+      },
+      "tribe": "gaul"
+    },
+    {
+      "id": "ressc",
+      "giver": "markus",
+      "name": "Research Scout",
+      "task": "Research Scout in the Academy",
+      "requires": [
+        "stab1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 700,
+        "clay": 500,
+        "iron": 300,
+        "crop": 0
+      },
+      "tribe": "teuton"
+    },
+    {
+      "id": "eql5",
+      "giver": "markus",
+      "name": "Train 5 Equites Legati",
+      "task": "Train 5 Equites Legati",
+      "requires": [
+        "reseql"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 350,
+        "clay": 400,
+        "iron": 25,
+        "crop": 0
+      },
+      "tribe": "roman"
+    },
+    {
+      "id": "pf5",
+      "giver": "markus",
+      "name": "Train 5 Pathfinders",
+      "task": "Train 5 Pathfinders",
+      "requires": [
+        "respf"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 450,
+        "clay": 200,
+        "iron": 75,
+        "crop": 0
+      },
+      "tribe": "gaul"
+    },
+    {
+      "id": "sc5",
+      "giver": "markus",
+      "name": "Train 5 Scouts",
+      "task": "Train 5 Scouts",
+      "requires": [
+        "ressc"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 450,
+        "clay": 250,
+        "iron": 50,
+        "crop": 0
+      },
+      "tribe": "teuton"
+    },
+    {
+      "id": "spy",
+      "giver": "markus",
+      "name": "Conduct espionage",
+      "task": "Send scouts on a spying mission",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "100 XP"
+      }
+    },
+    {
+      "id": "units100",
+      "giver": "markus",
+      "name": "100 units",
+      "task": "Train 100 units",
+      "requires": [
+        "units25"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 5000,
+            "clay": 3000,
+            "iron": 6000,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 4000,
+            "clay": 5000,
+            "iron": 2000,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 4200,
+            "clay": 3200,
+            "iron": 1800,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "trib10",
+      "giver": "markus",
+      "name": "Collect 10 tributes",
+      "task": "Collect tributes 10 times",
+      "requires": [
+        "trib3"
+      ],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "100 XP"
+      }
+    },
+    {
+      "id": "stolen10",
+      "giver": "markus",
+      "name": "Sell 10 stolen goods",
+      "task": "Sell 10 stolen goods",
+      "requires": [
+        "stolen3"
+      ],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "100 XP"
+      }
+    },
+    {
+      "id": "units250",
+      "giver": "markus",
+      "name": "250 units",
+      "task": "Train 250 units",
+      "requires": [
+        "units100"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 10000,
+            "clay": 6000,
+            "iron": 14000,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 8000,
+            "clay": 12000,
+            "iron": 4000,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 9000,
+            "clay": 7000,
+            "iron": 3500,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "ws1",
+      "giver": "markus",
+      "name": "Build Workshop",
+      "task": "Build a Workshop",
+      "requires": [
+        "acad5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 200,
+        "clay": 2000,
+        "iron": 200,
+        "crop": 0
+      }
+    },
+    {
+      "id": "siege10",
+      "giver": "markus",
+      "name": "10 siege units",
+      "task": "Train 10 siege units",
+      "requires": [
+        "ws1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 5000,
+        "clay": 1000,
+        "iron": 1000,
+        "crop": 1000
+      }
+    },
+    {
+      "id": "trib50",
+      "giver": "markus",
+      "name": "Collect 50 tributes",
+      "task": "Collect tributes 50 times",
+      "requires": [
+        "trib10"
+      ],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "200 XP"
+      }
+    },
+    {
+      "id": "stolen50",
+      "giver": "markus",
+      "name": "Sell 50 stolen goods",
+      "task": "Sell 50 stolen goods",
+      "requires": [
+        "stolen10"
+      ],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "200 XP"
+      }
+    },
+    {
+      "id": "units500",
+      "giver": "markus",
+      "name": "500 units",
+      "task": "Train 500 units",
+      "requires": [
+        "units250"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 15000,
+            "clay": 9000,
+            "iron": 20000,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 10000,
+            "clay": 17000,
+            "iron": 6000,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 12500,
+            "clay": 10000,
+            "iron": 5000,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "units1000",
+      "giver": "markus",
+      "name": "1000 units",
+      "task": "Train 1,000 units",
+      "requires": [
+        "units500"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 30000,
+            "clay": 18500,
+            "iron": 37500,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 22500,
+            "clay": 26000,
+            "iron": 11250,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 25000,
+            "clay": 18500,
+            "iron": 9000,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "trib100",
+      "giver": "markus",
+      "name": "Collect 100 tributes",
+      "task": "Collect tributes 100 times",
+      "requires": [
+        "trib50"
+      ],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "300 XP"
+      }
+    },
+    {
+      "id": "stolen100",
+      "giver": "markus",
+      "name": "Sell 100 stolen goods",
+      "task": "Sell 100 stolen goods",
+      "requires": [
+        "stolen50"
+      ],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "300 XP"
+      }
+    },
+    {
+      "id": "units3000",
+      "giver": "markus",
+      "name": "3000 units",
+      "task": "Train 3,000 units",
+      "requires": [
+        "units1000"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 33333,
+            "clay": 16666,
+            "iron": 33333,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 23333,
+            "clay": 30000,
+            "iron": 13333,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 26666,
+            "clay": 20000,
+            "iron": 10000,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "trib300",
+      "giver": "markus",
+      "name": "Collect 300 tributes",
+      "task": "Collect tributes 300 times",
+      "requires": [
+        "trib100"
+      ],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "400 XP"
+      },
+      "note": "Requires column lists only \"Collect 100 tributes\" without the \"King\" marker the other tribute quests have; role set to king by analogy."
+    },
+    {
+      "id": "stolen300",
+      "giver": "markus",
+      "name": "Sell 300 stolen goods",
+      "task": "Sell 300 stolen goods",
+      "requires": [
+        "stolen100"
+      ],
+      "role": "governor",
+      "reward": null,
+      "note": "Not a row in the official table; only referenced as prerequisite of the next quest in the chain. Reward unknown; prerequisite and position inferred."
+    },
+    {
+      "id": "units10000",
+      "giver": "markus",
+      "name": "10000 units",
+      "task": "Train 10,000 units",
+      "requires": [
+        "units3000"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 66666,
+            "clay": 33333,
+            "iron": 66666,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 46666,
+            "clay": 60000,
+            "iron": 26666,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 53333,
+            "clay": 40000,
+            "iron": 20000,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "units30000",
+      "giver": "markus",
+      "name": "30000 units",
+      "task": "Train 30,000 units",
+      "requires": [
+        "units10000"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 88888,
+            "clay": 55555,
+            "iron": 88888,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 66666,
+            "clay": 80000,
+            "iron": 33333,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 77777,
+            "clay": 60000,
+            "iron": 40000,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "trib1000",
+      "giver": "markus",
+      "name": "Collect 1000 tributes",
+      "task": "Collect tributes 1,000 times",
+      "requires": [
+        "trib300"
+      ],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "500 XP"
+      }
+    },
+    {
+      "id": "stolen1000",
+      "giver": "markus",
+      "name": "Sell 1000 stolen goods",
+      "task": "Sell 1,000 stolen goods",
+      "requires": [
+        "stolen300"
+      ],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "500 XP"
+      }
+    },
+    {
+      "id": "units100000",
+      "giver": "markus",
+      "name": "100000 units",
+      "task": "Train 100,000 units",
+      "requires": [
+        "units30000"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 100000,
+            "clay": 70000,
+            "iron": 100000,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 88888,
+            "clay": 90000,
+            "iron": 50000,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 90000,
+            "clay": 75000,
+            "iron": 55555,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "trib3000",
+      "giver": "markus",
+      "name": "Collect 3000 tributes",
+      "task": "Collect tributes 3,000 times",
+      "requires": [
+        "trib1000"
+      ],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "1000 XP"
+      }
+    },
+    {
+      "id": "stolen3000",
+      "giver": "markus",
+      "name": "Sell 3000 stolen goods",
+      "task": "Sell 3,000 stolen goods",
+      "requires": [
+        "stolen1000"
+      ],
+      "role": "governor",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "1000 XP"
+      }
+    },
+    {
+      "id": "support",
+      "giver": "markus",
+      "name": "Support another player",
+      "task": "Send troops to reinforce another player",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "65 XP"
+      }
+    },
+    {
+      "id": "cr1",
+      "giver": "markus",
+      "name": "Build Cranny",
+      "task": "Build a Cranny",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 70,
+        "clay": 50,
+        "iron": 50,
+        "crop": 0
+      }
+    },
+    {
+      "id": "cr5",
+      "giver": "markus",
+      "name": "Cranny to level 5",
+      "task": "Upgrade the Cranny to level 5",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 150,
+        "clay": 200,
+        "iron": 115,
+        "crop": 50
+      }
+    },
+    {
+      "id": "robber",
+      "giver": "markus",
+      "name": "Attack Robber Hideout",
+      "task": "Attack a robber hideout",
+      "requires": [],
+      "role": "governor",
+      "reward": {
+        "wood": 500,
+        "clay": 500,
+        "iron": 500,
+        "crop": 500
+      }
+    },
+    {
+      "id": "oasis",
+      "giver": "markus",
+      "name": "Assign oasis",
+      "task": "Assign an oasis to one of your villages",
+      "requires": [
+        "emb1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 400,
+        "clay": 350,
+        "iron": 250,
+        "crop": 150
+      }
+    },
+    {
+      "id": "rubble",
+      "giver": "chieftain",
+      "name": "Dismantle rubble",
+      "task": "Clear away rubble in your village",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 50,
+        "clay": 50,
+        "iron": 100,
+        "crop": 50
+      }
+    },
+    {
+      "id": "adv1",
+      "giver": "chieftain",
+      "name": "Adventure",
+      "task": "Send your hero on an adventure",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "25 XP"
+      }
+    },
+    {
+      "id": "horse",
+      "giver": "chieftain",
+      "name": "Equip a Horse",
+      "task": "Equip your hero with a horse",
+      "requires": [
+        "adv1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 120,
+        "clay": 150,
+        "iron": 80,
+        "crop": 140
+      }
+    },
+    {
+      "id": "mp1",
+      "giver": "chieftain",
+      "name": "Build a Marketplace",
+      "task": "Build a Marketplace",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 50,
+        "clay": 50,
+        "iron": 100,
+        "crop": 50
+      }
+    },
+    {
+      "id": "trade",
+      "giver": "chieftain",
+      "name": "Trade resources",
+      "task": "Trade resources at the Marketplace",
+      "requires": [
+        "mp1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "Card item \"NPC trader\""
+      }
+    },
+    {
+      "id": "heroprod",
+      "giver": "chieftain",
+      "name": "Hero production",
+      "task": "Set your hero to produce resources",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "700 of chosen resource type"
+      },
+      "note": "Source row has a merged reward cell: 700 of a resource type of your choice."
+    },
+    {
+      "id": "npc",
+      "giver": "chieftain",
+      "name": "NPC trader",
+      "task": "Exchange resources with the NPC trader",
+      "requires": [
+        "mp1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 125,
+        "clay": 150,
+        "iron": 70,
+        "crop": 100
+      }
+    },
+    {
+      "id": "sellitem",
+      "giver": "chieftain",
+      "name": "Sell item",
+      "task": "Sell an item at the auction house",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "500 Silver"
+      }
+    },
+    {
+      "id": "bid",
+      "giver": "chieftain",
+      "name": "Place a bid",
+      "task": "Bid on an item at the auction house",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "2 Adventure points"
+      }
+    },
+    {
+      "id": "adv3",
+      "giver": "chieftain",
+      "name": "3 Adventures",
+      "task": "Complete 3 adventures",
+      "requires": [
+        "adv1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "75 XP"
+      }
+    },
+    {
+      "id": "adv10",
+      "giver": "chieftain",
+      "name": "10 Adventures",
+      "task": "Complete 10 adventures",
+      "requires": [
+        "adv3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "100 XP"
+      }
+    },
+    {
+      "id": "hero5",
+      "giver": "chieftain",
+      "name": "Hero level 5",
+      "task": "Get your hero to level 5",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "3 Adventure points"
+      }
+    },
+    {
+      "id": "adv20",
+      "giver": "chieftain",
+      "name": "20 Adventures",
+      "task": "Complete 20 adventures",
+      "requires": [
+        "adv10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "125 XP"
+      }
+    },
+    {
+      "id": "res1",
+      "giver": "chieftain",
+      "name": "Build Residence (or Palace)",
+      "task": "Build a Residence or a Palace",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 5000,
+        "clay": 3500,
+        "iron": 3500,
+        "crop": 4000
+      }
+    },
+    {
+      "id": "res5",
+      "giver": "chieftain",
+      "name": "Residence (or Palace) level 5",
+      "task": "Upgrade the Residence or Palace to level 5",
+      "requires": [
+        "res1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "Residence (or Palace) level 10"
+      },
+      "note": "Reward raises the Residence/Palace in the active village to level 10, only if it is at level 5-9 there."
+    },
+    {
+      "id": "settlers3",
+      "giver": "chieftain",
+      "name": "Train 3 Settlers",
+      "task": "Train 3 Settlers",
+      "requires": [
+        "res5"
+      ],
+      "role": "all",
+      "reward": {
+        "rt": {
+          "roman": {
+            "wood": 5000,
+            "clay": 4000,
+            "iron": 6000,
+            "crop": 0
+          },
+          "gaul": {
+            "wood": 4500,
+            "clay": 6000,
+            "iron": 4500,
+            "crop": 0
+          },
+          "teuton": {
+            "wood": 6000,
+            "clay": 5000,
+            "iron": 4000,
+            "crop": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "gear",
+      "giver": "chieftain",
+      "name": "Full gear",
+      "task": "Fill every equipment slot of your hero",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "150 XP"
+      }
+    },
+    {
+      "id": "mp5",
+      "giver": "chieftain",
+      "name": "Marketplace to level 5",
+      "task": "Upgrade the Marketplace to level 5",
+      "requires": [
+        "mp1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 200,
+        "clay": 200,
+        "iron": 333,
+        "crop": 150
+      }
+    },
+    {
+      "id": "village2",
+      "giver": "chieftain",
+      "name": "Found new village",
+      "task": "Found a new village with settlers",
+      "requires": [
+        "settlers3"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 3500,
+        "clay": 3500,
+        "iron": 3500,
+        "crop": 1000
+      }
+    },
+    {
+      "id": "sendres",
+      "giver": "chieftain",
+      "name": "Send resources",
+      "task": "Send resources with merchants",
+      "requires": [
+        "village2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "Card item \"Instant Merchant\""
+      }
+    },
+    {
+      "id": "instant",
+      "giver": "chieftain",
+      "name": "Instant delivery",
+      "task": "Have a resource shipment delivered instantly",
+      "requires": [
+        "sendres"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 700,
+        "clay": 1000,
+        "iron": 1300,
+        "crop": 300
+      }
+    },
+    {
+      "id": "th1",
+      "giver": "chieftain",
+      "name": "Construct a Town Hall",
+      "task": "Build a Town Hall",
+      "requires": [
+        "village2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "800 Culture points"
+      }
+    },
+    {
+      "id": "celsmall",
+      "giver": "chieftain",
+      "name": "Small celebration",
+      "task": "Hold a small celebration in the Town Hall",
+      "requires": [
+        "th1"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "500 Culture points"
+      }
+    },
+    {
+      "id": "hero10",
+      "giver": "chieftain",
+      "name": "Hero level 10",
+      "task": "Get your hero to level 10",
+      "requires": [
+        "hero5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "3 Adventure points"
+      }
+    },
+    {
+      "id": "adv33",
+      "giver": "chieftain",
+      "name": "33 Adventures",
+      "task": "Complete 33 adventures",
+      "requires": [
+        "adv20"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "250 XP"
+      }
+    },
+    {
+      "id": "cityorvil",
+      "giver": "chieftain",
+      "name": "City or new village",
+      "task": "Found another village or turn a village into a city",
+      "requires": [
+        "village2"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 6000,
+        "clay": 7500,
+        "iron": 5000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "adv50",
+      "giver": "chieftain",
+      "name": "50 Adventures",
+      "task": "Complete 50 adventures",
+      "requires": [
+        "adv33"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "350 XP"
+      }
+    },
+    {
+      "id": "cellarge",
+      "giver": "chieftain",
+      "name": "Large celebration",
+      "task": "Hold a large celebration in the Town Hall",
+      "requires": [
+        "celsmall"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 10000,
+        "clay": 11000,
+        "iron": 11000,
+        "crop": 1500,
+        "other": "2000 Culture points"
+      }
+    },
+    {
+      "id": "hero25",
+      "giver": "chieftain",
+      "name": "Hero level 25",
+      "task": "Get your hero to level 25",
+      "requires": [
+        "hero10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "4 Adventure points"
+      }
+    },
+    {
+      "id": "hero50",
+      "giver": "chieftain",
+      "name": "Hero level 50",
+      "task": "Get your hero to level 50",
+      "requires": [
+        "hero25"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "5 Adventure points"
+      }
+    },
+    {
+      "id": "own5",
+      "giver": "chieftain",
+      "name": "Own 5 villages",
+      "task": "Own 5 villages",
+      "requires": [
+        "cityorvil"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 9500,
+        "clay": 7000,
+        "iron": 8000,
+        "crop": 0
+      },
+      "note": "Crop cell is empty in the source (stored as 0)."
+    },
+    {
+      "id": "adv100",
+      "giver": "chieftain",
+      "name": "100 Adventures",
+      "task": "Complete 100 adventures",
+      "requires": [
+        "adv50"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "750 XP"
+      }
+    },
+    {
+      "id": "hero100",
+      "giver": "chieftain",
+      "name": "Hero level 100",
+      "task": "Get your hero to level 100",
+      "requires": [
+        "hero50"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "6 Adventure points"
+      }
+    },
+    {
+      "id": "own10",
+      "giver": "chieftain",
+      "name": "Own 10 villages",
+      "task": "Own 10 villages",
+      "requires": [
+        "own5"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 18000,
+        "clay": 22000,
+        "iron": 12000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "own15",
+      "giver": "chieftain",
+      "name": "Own 15 villages",
+      "task": "Own 15 villages",
+      "requires": [
+        "own10"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 24000,
+        "clay": 27000,
+        "iron": 16000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "adv200",
+      "giver": "chieftain",
+      "name": "200 Adventures",
+      "task": "Complete 200 adventures",
+      "requires": [
+        "adv100"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "1000 XP"
+      }
+    },
+    {
+      "id": "hero150",
+      "giver": "chieftain",
+      "name": "Hero level 150",
+      "task": "Get your hero to level 150",
+      "requires": [
+        "hero100"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "7 Adventure points"
+      }
+    },
+    {
+      "id": "adv350",
+      "giver": "chieftain",
+      "name": "350 Adventures",
+      "task": "Complete 350 adventures",
+      "requires": [
+        "adv200"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "2000 XP"
+      }
+    },
+    {
+      "id": "own20",
+      "giver": "chieftain",
+      "name": "Own 20 villages",
+      "task": "Own 20 villages",
+      "requires": [
+        "own15"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 30000,
+        "clay": 32000,
+        "iron": 20000,
+        "crop": 0
+      }
+    },
+    {
+      "id": "hero200",
+      "giver": "chieftain",
+      "name": "Hero level 200",
+      "task": "Get your hero to level 200",
+      "requires": [
+        "hero150"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "8 Adventure points"
+      }
+    },
+    {
+      "id": "adv500",
+      "giver": "chieftain",
+      "name": "500 Adventures",
+      "task": "Complete 500 adventures",
+      "requires": [
+        "adv350"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "3000 XP"
+      }
+    },
+    {
+      "id": "hero250",
+      "giver": "chieftain",
+      "name": "Hero level 250",
+      "task": "Get your hero to level 250",
+      "requires": [
+        "hero200"
+      ],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "10 Adventure points"
+      }
+    },
+    {
+      "id": "duke",
+      "giver": "chieftain",
+      "name": "Promote a Duke",
+      "task": "Appoint a Duke in your kingdom",
+      "requires": [],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "40 XP"
+      }
+    },
+    {
+      "id": "skill",
+      "giver": "chieftain",
+      "name": "Skill your hero",
+      "task": "Spend skill points on your hero",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 150,
+        "clay": 150,
+        "iron": 100,
+        "crop": 75
+      }
+    },
+    {
+      "id": "heal",
+      "giver": "chieftain",
+      "name": "Heal your hero",
+      "task": "Heal your hero",
+      "requires": [],
+      "role": "all",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "30 XP"
+      }
+    },
+    {
+      "id": "invite",
+      "giver": "chieftain",
+      "name": "Invite a player",
+      "task": "Invite another player to the game",
+      "requires": [],
+      "role": "king",
+      "reward": {
+        "wood": 0,
+        "clay": 0,
+        "iron": 0,
+        "crop": 0,
+        "other": "55 XP"
+      }
+    }
+  ],
+  "daily": {
+    "source": "https://support.kingdoms.com/en/articles/6-daily-quests",
+    "items": [
+      {
+        "topic": "location",
+        "info": "Quest book (exclamation-mark icon on the left of the village view), tab \"Daily quests\"."
+      },
+      {
+        "topic": "slots",
+        "info": "The book has 3 slots, so at most 3 daily quests can be held at once."
+      },
+      {
+        "topic": "refresh",
+        "info": "Claiming a reward empties the slot; a new quest arrives after a short delay shown by a countdown."
+      },
+      {
+        "topic": "exchange",
+        "info": "An unwanted quest can be swapped for another via the exchange icon."
+      }
+    ],
+    "notes": [
+      "The official article lists no concrete daily tasks, points or reward values - only the mechanics above. Task/reward data is unknown (TODO)."
+    ]
+  }
+}
