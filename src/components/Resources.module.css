@@ -1,0 +1,79 @@
+.row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Chips: tinted pills */
+.row[data-variant='chips'] .item {
+  padding: 3px 9px 3px 7px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+}
+
+.row[data-variant='chips'][data-size='lg'] .item {
+  padding: 6px 12px 6px 10px;
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+.row[data-variant='chips'][data-size='sm'] .item {
+  padding: 1px 7px 1px 5px;
+  font-size: var(--text-xs);
+}
+
+.row[data-variant='chips'] .item[data-res='wood'] {
+  background: var(--res-wood-bg);
+}
+.row[data-variant='chips'] .item[data-res='clay'] {
+  background: var(--res-clay-bg);
+}
+.row[data-variant='chips'] .item[data-res='iron'] {
+  background: var(--res-iron-bg);
+}
+.row[data-variant='chips'] .item[data-res='crop'] {
+  background: var(--res-crop-bg);
+}
+
+/* Plain: dense, for tables */
+.row[data-variant='plain'] {
+  gap: 4px 12px;
+  flex-wrap: nowrap;
+  font-size: var(--text-sm);
+}
+
+.row[data-variant='plain'] .item {
+  font-weight: 400;
+}
+
+.total {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--text-2);
+  font-weight: 700;
+  white-space: nowrap;
+  padding-left: 2px;
+}
+
+.row[data-size='lg'] .total {
+  font-size: var(--text-lg);
+  color: var(--text);
+  padding-left: 6px;
+}
+
+.other {
+  color: var(--text-2);
+  font-style: italic;
+  font-size: var(--text-sm);
+}

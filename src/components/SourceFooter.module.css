@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+.icon {
+  margin-top: 1px;
+  color: var(--accent);
+}
+
+.footer a {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.formula {
+  margin-left: 0.4em;
+  background: var(--surface-2);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+}
