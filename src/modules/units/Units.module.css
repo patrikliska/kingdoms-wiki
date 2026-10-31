@@ -6,15 +6,25 @@
   font-weight: 700;
 }
 
-.type {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-2);
+.typeIcon {
+  display: inline-grid;
+  color: var(--text-3);
 }
 
-.type svg {
-  color: var(--text-3);
+/* Training cost cell: resources on the left, total on the right */
+.cost {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.costTotal {
+  display: inline-flex;
+  gap: 4px;
+  color: var(--text-2);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- Phone card ---------- */

@@ -91,60 +91,69 @@ export function UnitsPage() {
     render: (u) => (
       <Link to={`/units/${u.id}${search}`} className={styles.unitLink} onClick={(e) => e.stopPropagation()}>
         {showTribe && <TribeDot tribe={u.tribe} />}
+        {/* the unit type is an icon (hover shows the word) – saves a whole column */}
+        <span className={styles.typeIcon} title={t(`unitType.${u.type}`)}>
+          <Icon name={typeIcon[u.type]} size={16} title={t(`unitType.${u.type}`)} />
+        </span>
         {u.name}
       </Link>
     ),
     sortValue: (u) => u.name,
   };
-  const typeCol: Column<Unit> = {
-    key: 'type',
-    header: t('units.col.type'),
-    render: (u) => (
-      <span className={styles.type}>
-        <Icon name={typeIcon[u.type]} size={16} />
-        {t(`unitType.${u.type}`)}
-      </span>
-    ),
-    sortValue: (u) => u.type,
-  };
 
+  const defVs = t('units.group.defVs');
   const statsCols: Column<Unit>[] = [
     num('attack', t('units.attack'), (u) => u.attack),
-    num('defInf', t('units.col.defInf'), (u) => u.defInf, n, t('units.defInf')),
-    num('defCav', t('units.col.defCav'), (u) => u.defCav, n, t('units.defCav')),
+    { ...num('defInf', t('units.col.vsInf'), (u) => u.defInf, n, t('units.defInf')), group: defVs },
+    { ...num('defCav', t('units.col.vsCav'), (u) => u.defCav, n, t('units.defCav')), group: defVs },
     {
       key: 'cost',
       header: t('units.trainingCost'),
-      render: (u) => <Resources value={u.cost} hideZero variant="plain" />,
+      title: t('units.trainingCostTitle'),
+      shrink: true,
+      // resources on the left, the total on the right so totals line up row to row
+      render: (u) => (
+        <span className={styles.cost}>
+          <Resources value={u.cost} hideZero variant="plain" />
+          <span className={styles.costTotal}>
+            <span aria-hidden="true">Σ</span>
+            <span className="visually-hidden">{t('res.total')}</span> {n(totalResources(u.cost))}
+          </span>
+        </span>
+      ),
+      sortValue: (u) => totalResources(u.cost),
     },
-    num('costTotal', 'Σ', (u) => totalResources(u.cost), n, t('units.col.costTotal')),
     num('speed', t('units.speed'), (u) => u.speed, n, t('units.speedTitle')),
     num('carry', t('units.carry'), (u) => u.carry),
     num('upkeep', t('units.col.upkeep'), (u) => u.upkeep, n, t('units.upkeepTitle')),
   ];
 
+  type Ratios = ReturnType<typeof unitRatios>;
+  const ratio = (
+    key: string,
+    header: string,
+    group: string,
+    get: (r: Ratios) => number,
+    title: string,
+  ): Column<Unit> => ({ ...num(key, header, (u) => get(unitRatios(u)), d, title), group });
+  const per100 = t('units.group.per100');
+  const perCrop = t('units.group.perCrop');
   const ratioCols: Column<Unit>[] = [
-    num('aPerCost', t('units.ratio.attackPerCost'), (u) => unitRatios(u).attackPerCost, d),
-    num('diPerCost', t('units.ratio.defInfPerCost'), (u) => unitRatios(u).defInfPerCost, d),
-    num('dcPerCost', t('units.ratio.defCavPerCost'), (u) => unitRatios(u).defCavPerCost, d),
-    num(
+    ratio('aPerCost', t('units.attack'), per100, (r) => r.attackPerCost, t('units.ratio.attackPerCost')),
+    ratio('diPerCost', t('units.col.defInf'), per100, (r) => r.defInfPerCost, t('units.ratio.defInfPerCost')),
+    ratio('dcPerCost', t('units.col.defCav'), per100, (r) => r.defCavPerCost, t('units.ratio.defCavPerCost')),
+    ratio('carryPerCost', t('units.carry'), per100, (r) => r.carryPerCost, t('units.ratio.carryPerCost')),
+    ratio(
       'aPerCrop',
-      t('units.ratio.attackPerCrop'),
-      (u) => unitRatios(u).attackPerCrop,
-      d,
+      t('units.attack'),
+      perCrop,
+      (r) => r.attackPerCrop,
       t('units.ratio.attackPerCropTitle'),
     ),
-    num(
-      'dPerCrop',
-      t('units.ratio.defPerCrop'),
-      (u) => unitRatios(u).defPerCrop,
-      d,
-      t('units.ratio.defPerCropTitle'),
-    ),
-    num('carryPerCost', t('units.ratio.carryPerCost'), (u) => unitRatios(u).carryPerCost, d),
+    ratio('dPerCrop', t('units.col.def'), perCrop, (r) => r.defPerCrop, t('units.ratio.defPerCropTitle')),
   ];
 
-  const columns = [nameCol, typeCol, ...(view === 'stats' ? statsCols : ratioCols)];
+  const columns = [nameCol, ...(view === 'stats' ? statsCols : ratioCols)];
 
   const card = (u: Unit) => {
     const r = unitRatios(u);
@@ -238,6 +247,7 @@ export function UnitsPage() {
             isRowActive={(u) => u.id === selected?.id}
             onRowClick={open}
             mobileCard={card}
+            compact
           />
           <p className={layout.small}>{t('units.note')}</p>
           <SourceFooter info={unitsSource} />
