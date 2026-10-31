@@ -68,3 +68,23 @@ test('settings sheet changes the tribe everywhere', async ({ page }) => {
   await expect(sheet).toBeHidden();
   await expect(page.getByRole('link', { name: /Phalanx/ }).first()).toBeVisible();
 });
+
+test.describe('units table on a desktop', () => {
+  test.skip(({ isMobile }) => isMobile, 'phones get cards instead of the table');
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test('fits without sideways scrolling and sorts by total cost', async ({ page }) => {
+    await page.goto('/units?tribe=all');
+    const region = page.getByRole('region', { name: 'Jednotky' });
+    const { client, scroll } = await region.evaluate((el) => ({
+      client: el.clientWidth,
+      scroll: el.scrollWidth,
+    }));
+    expect(scroll).toBeLessThanOrEqual(client);
+
+    await expect(page.getByRole('columnheader', { name: 'Obrana proti' })).toBeVisible();
+    await page.getByRole('button', { name: 'Cena výcviku' }).click();
+    // the most expensive unit first: the Gaul Chieftain (Σ 107 150)
+    await expect(page.getByRole('row').nth(2)).toContainText('Chieftain');
+  });
+});

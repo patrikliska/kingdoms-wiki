@@ -27,6 +27,44 @@
   text-align: end;
 }
 
+.table [data-shrink] {
+  width: 1%;
+}
+
+/* Compact: many short numbers side by side */
+.table[data-compact] th,
+.table[data-compact] td {
+  padding-inline: 8px;
+}
+
+.table[data-compact] [data-edge='start'] {
+  padding-inline-start: 14px;
+}
+
+.table[data-compact] [data-edge='end'] {
+  padding-inline-end: 14px;
+}
+
+/* Group label spanning several columns */
+.table thead th.groupHead {
+  padding-block: 8px 4px;
+  border-bottom: 0;
+  text-align: center;
+  color: var(--text-3);
+}
+
+/* A short rule under the label shows which columns it spans */
+.table thead th.groupHead::after {
+  content: '';
+  position: absolute;
+  inset: auto 8px 0;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.table thead th {
+  vertical-align: bottom;
+}
+
 .table thead th {
   position: sticky;
   top: 0;
@@ -40,14 +78,14 @@
 }
 
 /* Keep the first column visible while scrolling sideways */
-.table tr > :first-child {
+.table [data-edge='start'] {
   position: sticky;
   left: 0;
   z-index: 1;
   background: var(--surface);
 }
 
-.table thead tr > :first-child {
+.table thead [data-edge='start'] {
   z-index: 2;
   background: var(--surface-2);
 }
@@ -72,7 +110,7 @@
   background: var(--accent-soft);
 }
 
-.table tbody tr[data-active] > :first-child {
+.table tbody tr[data-active] > [data-edge='start'] {
   box-shadow: inset 3px 0 0 var(--accent);
 }
 

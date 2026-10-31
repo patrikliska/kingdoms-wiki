@@ -13,6 +13,10 @@ export interface Column<Row> {
   /** When set, the column is sortable. */
   readonly sortValue?: (row: Row) => number | string;
   readonly align?: 'start' | 'end';
+  /** Shared label above neighbouring columns (e.g. "Defence vs" over infantry / cavalry). */
+  readonly group?: string;
+  /** Only as wide as its content; spare width goes to the other columns. */
+  readonly shrink?: boolean;
 }
 
 interface DataTableProps<Row> {
@@ -24,6 +28,8 @@ interface DataTableProps<Row> {
   readonly onRowClick?: (row: Row) => void;
   /** On phones render each row as a card instead of a wide table. */
   readonly mobileCard?: (row: Row) => ReactNode;
+  /** Tighter cell padding for tables with many short numbers. */
+  readonly compact?: boolean;
 }
 
 type Sort = { key: string; dir: 1 | -1 } | null;
@@ -49,6 +55,7 @@ export function DataTable<Row>({
   isRowActive,
   onRowClick,
   mobileCard,
+  compact = false,
 }: DataTableProps<Row>) {
   const t = useT();
   const sortId = useId();
@@ -95,36 +102,70 @@ export function DataTable<Row>({
   const toggleSort = (key: string) =>
     setSort((s) => (s?.key !== key ? { key, dir: -1 } : s.dir === -1 ? { key, dir: 1 } : null));
 
+  const last = columns.length - 1;
+  /** Marks the first / last column (sticky first column, outer padding). */
+  const edge = (from: number, to = from) => (from === 0 ? 'start' : to === last ? 'end' : undefined);
+
+  const headerCell = (c: Column<Row>, rowSpan?: number) => {
+    const dir = sort?.key === c.key ? sort.dir : 0;
+    return (
+      <th
+        key={c.key}
+        scope="col"
+        rowSpan={rowSpan}
+        data-edge={edge(columns.indexOf(c))}
+        data-align={c.align ?? 'start'}
+        data-shrink={c.shrink || undefined}
+        aria-sort={dir === 0 ? undefined : dir === 1 ? 'ascending' : 'descending'}
+        title={c.title}
+      >
+        {c.sortValue ? (
+          <button type="button" className={styles.sortBtn} onClick={() => toggleSort(c.key)}>
+            {c.header}
+            <span aria-hidden="true" className={styles.sortMark} data-dir={dir}>
+              <Icon name="arrowDown" size={12} />
+            </span>
+          </button>
+        ) : (
+          c.header
+        )}
+      </th>
+    );
+  };
+
+  // With column groups the header has two rows: group labels above, their columns below.
+  const grouped = columns.some((c) => c.group);
+  const groupRow = columns.flatMap((c, i) => {
+    if (!c.group) return [headerCell(c, 2)];
+    if (columns[i - 1]?.group === c.group) return [];
+    let span = 1;
+    while (columns[i + span]?.group === c.group) span++;
+    return [
+      <th
+        key={`group:${c.key}`}
+        scope="colgroup"
+        colSpan={span}
+        className={styles.groupHead}
+        data-edge={edge(i, i + span - 1)}
+      >
+        {c.group}
+      </th>,
+    ];
+  });
+
   return (
     <div className={styles.scroll} tabIndex={0} role="region" aria-label={caption}>
-      <table className={styles.table}>
+      <table className={styles.table} data-compact={compact || undefined}>
         <caption className="visually-hidden">{caption}</caption>
         <thead>
-          <tr>
-            {columns.map((c) => {
-              const dir = sort?.key === c.key ? sort.dir : 0;
-              return (
-                <th
-                  key={c.key}
-                  scope="col"
-                  data-align={c.align ?? 'start'}
-                  aria-sort={dir === 0 ? undefined : dir === 1 ? 'ascending' : 'descending'}
-                  title={c.title}
-                >
-                  {c.sortValue ? (
-                    <button type="button" className={styles.sortBtn} onClick={() => toggleSort(c.key)}>
-                      {c.header}
-                      <span aria-hidden="true" className={styles.sortMark} data-dir={dir}>
-                        <Icon name="arrowDown" size={12} />
-                      </span>
-                    </button>
-                  ) : (
-                    c.header
-                  )}
-                </th>
-              );
-            })}
-          </tr>
+          {grouped ? (
+            <>
+              <tr>{groupRow}</tr>
+              <tr>{columns.filter((c) => c.group).map((c) => headerCell(c))}</tr>
+            </>
+          ) : (
+            <tr>{columns.map((c) => headerCell(c))}</tr>
+          )}
         </thead>
         <tbody>
           {sorted.map((row) => (
@@ -136,11 +177,16 @@ export function DataTable<Row>({
             >
               {columns.map((c, i) =>
                 i === 0 ? (
-                  <th key={c.key} scope="row" data-align={c.align ?? 'start'}>
+                  <th key={c.key} scope="row" data-align={c.align ?? 'start'} data-edge="start">
                     {c.render(row)}
                   </th>
                 ) : (
-                  <td key={c.key} data-align={c.align ?? 'start'}>
+                  <td
+                    key={c.key}
+                    data-align={c.align ?? 'start'}
+                    data-edge={edge(i)}
+                    data-shrink={c.shrink || undefined}
+                  >
                     {c.render(row)}
                   </td>
                 ),
