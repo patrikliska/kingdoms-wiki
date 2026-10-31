@@ -5,14 +5,16 @@ import { Icon } from '../components/Icon';
 import layout from '../components/layout.module.css';
 import { PageHeader, SectionLabel } from '../components/ui';
 import { useT } from '../lib/i18n';
+import { reportEnabled } from '../lib/report';
 import { MODULES } from './nav';
-import { settingsOpenAtom } from './state';
+import { reportOpenAtom, settingsOpenAtom } from './state';
 import styles from './MorePage.module.css';
 
 /** Phone "More" tab: modules that don't fit the tab bar, plus settings. */
 export function MorePage() {
   const t = useT();
   const openSettings = useSetAtom(settingsOpenAtom);
+  const openReport = useSetAtom(reportOpenAtom);
   return (
     <div className={layout.page}>
       <PageHeader title={t('nav.more')} />
@@ -66,6 +68,26 @@ export function MorePage() {
           </li>
         </ul>
       </section>
+
+      {reportEnabled && (
+        <section className={layout.stack} aria-labelledby="more-feedback">
+          <SectionLabel id="more-feedback">{t('more.feedback')}</SectionLabel>
+          <ul className={styles.list}>
+            <li>
+              <button type="button" className={styles.row} onClick={() => openReport(true)}>
+                <span className={styles.icon}>
+                  <Icon name="flag" />
+                </span>
+                <span className={styles.text}>
+                  <span className={styles.title}>{t('more.report')}</span>
+                  <span className={styles.sub}>{t('more.reportSub')}</span>
+                </span>
+                <Icon name="chevronRight" size={18} className={styles.arrow} />
+              </button>
+            </li>
+          </ul>
+        </section>
+      )}
 
       <p className={layout.small}>{t('more.about')}</p>
       <Credits className={layout.small} />

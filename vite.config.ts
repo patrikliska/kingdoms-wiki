@@ -8,8 +8,17 @@ import { VitePWA } from 'vite-plugin-pwa';
  */
 const base = process.env.BASE_PATH ?? '/';
 
+/** Shown in reports: package version + commit on CI (e.g. 0.1.0+6a88511). */
+const commit = process.env.GITHUB_SHA?.slice(0, 7);
+const appVersion = `${process.env.npm_package_version ?? '0.0.0'}${commit ? `+${commit}` : ''}`;
+
 export default defineConfig({
   base,
+  define: { __APP_VERSION__: JSON.stringify(appVersion) },
+  server: {
+    // Dev only: the report form posts to /api/report, `pnpm report:dev` answers it.
+    proxy: { '/api/report': { target: 'http://localhost:8787', rewrite: () => '/' } },
+  },
   plugins: [
     react(),
     VitePWA({

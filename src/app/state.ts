@@ -23,6 +23,9 @@ export const searchOpenAtom = atom(false);
 /** Whether the settings sheet is open (not persisted). */
 export const settingsOpenAtom = atom(false);
 
+/** Whether the "suggest a correction" form is open (not persisted). */
+export const reportOpenAtom = atom(false);
+
 export interface RecentItem {
   readonly path: string;
   readonly title: string;

@@ -14,6 +14,7 @@ const paths = {
   chevronLeft: 'm15 5-7 7 7 7',
   chevronDown: 'm5 9 7 7 7-7',
   check: 'm5 12.5 4.5 4.5L19 7.5',
+  flag: 'M5.5 21V4M5.5 4.5h12l-2.5 4.25 2.5 4.25h-12',
   cross: 'M7 7l10 10M17 7 7 17',
   clock: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3.5 2',
   history: 'M3.5 12a8.5 8.5 0 1 0 2.5-6M3.5 4v4.5H8M12 8v4.5l3 2',
