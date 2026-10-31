@@ -31,12 +31,14 @@ export const buildingsVerifiedAt = '2026-10-27';
 export const buildingsSource: readonly SourceInfo[] = [
   { source: 'https://tk-kb.kingdoms.com/en-US/buildings', verifiedAt: buildingsVerifiedAt },
   { source: 'https://support.kingdoms.com/en/collections/42-buildings', verifiedAt: buildingsVerifiedAt },
+  // building names exactly as the game shows them (official client localization, client 0.120.30)
+  { source: 'https://static.kingdoms.com/game/0.120.30/lang/cz.js', verifiedAt: '2026-10-31' },
 ];
 
 export const buildings: readonly Building[] = [
   {
     id: 'woodcutter',
-    name: 'Woodcutter',
+    name: { cs: 'Dřevorubec', en: 'Woodcutter' },
     category: 'resources',
     maxLevel: 20,
     tribe: null,
@@ -70,7 +72,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'clay-pit',
-    name: 'Clay Pit',
+    name: { cs: 'Hliněný důl', en: 'Clay Pit' },
     category: 'resources',
     maxLevel: 20,
     tribe: null,
@@ -104,7 +106,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'iron-mine',
-    name: 'Iron Mine',
+    name: { cs: 'Železný důl', en: 'Iron Mine' },
     category: 'resources',
     maxLevel: 20,
     tribe: null,
@@ -138,7 +140,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'cropland',
-    name: 'Cropland',
+    name: { cs: 'Obilné pole', en: 'Cropland' },
     category: 'resources',
     maxLevel: 20,
     tribe: null,
@@ -172,7 +174,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'sawmill',
-    name: 'Sawmill',
+    name: { cs: 'Pila', en: 'Sawmill' },
     category: 'resources',
     maxLevel: 5,
     tribe: null,
@@ -193,7 +195,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'brickyard',
-    name: 'Brickyard',
+    name: { cs: 'Cihelna', en: 'Brickyard' },
     category: 'resources',
     maxLevel: 5,
     tribe: null,
@@ -214,7 +216,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'iron-foundry',
-    name: 'Iron Foundry',
+    name: { cs: 'Slévárna', en: 'Iron Foundry' },
     category: 'resources',
     maxLevel: 5,
     tribe: null,
@@ -235,7 +237,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'grain-mill',
-    name: 'Grain Mill',
+    name: { cs: 'Mlýn', en: 'Grain Mill' },
     category: 'resources',
     maxLevel: 5,
     tribe: null,
@@ -253,7 +255,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'bakery',
-    name: 'Bakery',
+    name: { cs: 'Pekárna', en: 'Bakery' },
     category: 'resources',
     maxLevel: 5,
     tribe: null,
@@ -275,7 +277,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'warehouse',
-    name: 'Warehouse',
+    name: { cs: 'Sklad surovin', en: 'Warehouse' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -313,7 +315,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'granary',
-    name: 'Granary',
+    name: { cs: 'Sýpka', en: 'Granary' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -351,7 +353,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'smithy',
-    name: 'Smithy',
+    name: { cs: 'Zbrojnice', en: 'Smithy' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -387,7 +389,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'tournament-square',
-    name: 'Tournament Square',
+    name: { cs: 'Turnajové hřiště', en: 'Tournament Square' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -420,7 +422,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'main-building',
-    name: 'Main Building',
+    name: { cs: 'Hlavní budova', en: 'Main Building' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -453,7 +455,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'rally-point',
-    name: 'Rally Point',
+    name: { cs: 'Shromaždiště', en: 'Rally Point' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -486,7 +488,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'marketplace',
-    name: 'Marketplace',
+    name: { cs: 'Tržiště', en: 'Marketplace' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -522,7 +524,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'embassy',
-    name: 'Embassy',
+    name: { cs: 'Ambasáda', en: 'Embassy' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -561,7 +563,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'barracks',
-    name: 'Barracks',
+    name: { cs: 'Kasárny', en: 'Barracks' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -597,7 +599,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'stable',
-    name: 'Stable',
+    name: { cs: 'Stáje', en: 'Stable' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -633,7 +635,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'workshop',
-    name: 'Workshop',
+    name: { cs: 'Dílna', en: 'Workshop' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -669,7 +671,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'academy',
-    name: 'Academy',
+    name: { cs: 'Akademie', en: 'Academy' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -705,7 +707,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'cranny',
-    name: 'Cranny',
+    name: { cs: 'Úkryt', en: 'Cranny' },
     category: 'infrastructure',
     maxLevel: 10,
     tribe: null,
@@ -734,7 +736,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'town-hall',
-    name: 'Town Hall',
+    name: { cs: 'Radnice', en: 'Town Hall' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -842,14 +844,14 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'residence',
-    name: 'Residence',
+    name: { cs: 'Rezidence', en: 'Residence' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
     where: ['village', 'city', 'capital'],
     requires: [{ id: 'main-building', level: 5 }],
     notes: [
-      { cs: 'Nelze mít zároveň s: Palace.', en: 'Cannot coexist with: Palace.' },
+      { cs: 'Nelze mít zároveň s: Palác.', en: 'Cannot coexist with: Palace.' },
       {
         cs: 'Expanzní sloty (osadníci/náčelníci) na levelech 10, 20.',
         en: 'Expansion slots (settlers/chiefs) at levels 10, 20.',
@@ -881,7 +883,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'palace',
-    name: 'Palace',
+    name: { cs: 'Palác', en: 'Palace' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -892,12 +894,12 @@ export const buildings: readonly Building[] = [
     ],
     notes: [
       {
-        cs: 'Nelze mít zároveň s: Residence, Wonder of the World.',
+        cs: 'Nelze mít zároveň s: Rezidence, Div světa.',
         en: 'Cannot coexist with: Residence, Wonder of the World.',
       },
       { cs: 'Jen jeden na účet.', en: 'Only one per account.' },
       {
-        cs: 'Nelze postavit ve vesnici s Wonder of the World.',
+        cs: 'Nelze postavit ve vesnici s Divem světa.',
         en: 'Cannot be built in a Wonder of the World village.',
       },
       {
@@ -931,7 +933,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'treasury',
-    name: 'Treasury',
+    name: { cs: 'Pokladnice', en: 'Treasury' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -942,13 +944,13 @@ export const buildings: readonly Building[] = [
         cs: 'Ve vesnici lze postavit víckrát – další až po dosažení levelu 20.',
         en: 'Can be built more than once per village — the next one after level 20.',
       },
-      { cs: 'Nelze mít zároveň s: Wonder of the World.', en: 'Cannot coexist with: Wonder of the World.' },
+      { cs: 'Nelze mít zároveň s: Div světa.', en: 'Cannot coexist with: Wonder of the World.' },
       {
         cs: 'Level 1 má zvláštní cenu, další levely se počítají podle běžného vzorce.',
         en: 'Level 1 has a special cost; later levels follow the usual formula.',
       },
       {
-        cs: 'Nestaví se přímo – vzniká aktivací Hidden Treasury králem, vicekrálem nebo vévodou s volným slotem na pokladnici.',
+        cs: 'Nestaví se přímo – vzniká, když král, vicekrál nebo vévoda s volným slotem na pokladnici aktivuje Skrytou pokladnici.',
         en: 'Not built directly — a king, vice king or duke with a free treasury slot activates a Hidden Treasury.',
       },
     ],
@@ -978,7 +980,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'trade-office',
-    name: 'Trade Office',
+    name: { cs: 'Obchodní kancelář', en: 'Trade Office' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -1014,7 +1016,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'great-barracks',
-    name: 'Great Barracks',
+    name: { cs: 'Velké kasárny', en: 'Great Barracks' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -1047,7 +1049,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'great-stable',
-    name: 'Great Stable',
+    name: { cs: 'Velké stáje', en: 'Great Stable' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -1080,7 +1082,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'city-wall',
-    name: 'City Wall',
+    name: { cs: 'Městská zeď', en: 'City Wall' },
     category: 'military',
     maxLevel: 20,
     tribe: 'roman',
@@ -1113,7 +1115,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'earth-wall',
-    name: 'Earth Wall',
+    name: { cs: 'Zemní hráz', en: 'Earth Wall' },
     category: 'military',
     maxLevel: 20,
     tribe: 'teuton',
@@ -1146,7 +1148,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'palisade',
-    name: 'Palisade',
+    name: { cs: 'Palisáda', en: 'Palisade' },
     category: 'military',
     maxLevel: 20,
     tribe: 'gaul',
@@ -1179,7 +1181,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'stonemasons-lodge',
-    name: "Stonemason's Lodge",
+    name: { cs: 'Kameník', en: "Stonemason's Lodge" },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -1212,7 +1214,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'brewery',
-    name: 'Brewery',
+    name: { cs: 'Pivovar', en: 'Brewery' },
     category: 'military',
     maxLevel: 20,
     tribe: 'teuton',
@@ -1253,7 +1255,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'trapper',
-    name: 'Trapper',
+    name: { cs: 'Pasti', en: 'Trapper' },
     category: 'military',
     maxLevel: 20,
     tribe: 'gaul',
@@ -1291,7 +1293,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'great-warehouse',
-    name: 'Great Warehouse',
+    name: { cs: 'Velký sklad', en: 'Great Warehouse' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -1324,7 +1326,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'great-granary',
-    name: 'Great Granary',
+    name: { cs: 'Velká sýpka', en: 'Great Granary' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -1357,7 +1359,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'wonder-of-the-world',
-    name: 'Wonder of the World',
+    name: { cs: 'Div světa', en: 'Wonder of the World' },
     category: 'infrastructure',
     maxLevel: 100,
     tribe: null,
@@ -1470,7 +1472,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'horse-drinking-trough',
-    name: 'Horse Drinking Trough',
+    name: { cs: 'Koňské napajedlo', en: 'Horse Drinking Trough' },
     category: 'military',
     maxLevel: 20,
     tribe: 'roman',
@@ -1506,7 +1508,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'water-ditch',
-    name: 'Water Ditch',
+    name: { cs: 'Vodní příkop', en: 'Water Ditch' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -1545,7 +1547,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'natarian-wall',
-    name: 'Natarian Wall',
+    name: { cs: 'Natarská zeď', en: 'Natarian Wall' },
     category: 'military',
     maxLevel: 20,
     tribe: null,
@@ -1578,7 +1580,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'hidden-treasury',
-    name: 'Hidden Treasury',
+    name: { cs: 'Skrytá pokladnice', en: 'Hidden Treasury' },
     category: 'infrastructure',
     maxLevel: 20,
     tribe: null,
@@ -1586,7 +1588,7 @@ export const buildings: readonly Building[] = [
     requires: [{ id: 'main-building', level: 3 }],
     notes: [
       {
-        cs: 'Nelze mít zároveň s: Treasury, Wonder of the World.',
+        cs: 'Nelze mít zároveň s: Pokladnice, Div světa.',
         en: 'Cannot coexist with: Treasury, Wonder of the World.',
       },
       {
@@ -1620,7 +1622,7 @@ export const buildings: readonly Building[] = [
   },
   {
     id: 'healing-tent',
-    name: 'Healing Tent',
+    name: { cs: 'Ranhojičův stan', en: 'Healing Tent' },
     category: 'military',
     maxLevel: 20,
     tribe: null,

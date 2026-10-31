@@ -17,6 +17,25 @@ describe('building data', () => {
     }
   });
 
+  it('every building has a Czech and English name', () => {
+    for (const b of buildings) {
+      expect(b.name.cs.trim(), b.id).not.toBe('');
+      expect(b.name.en.trim(), b.id).not.toBe('');
+    }
+  });
+
+  // Exactly as the Czech game client shows them.
+  it.each([
+    ['main-building', 'Hlavní budova'],
+    ['warehouse', 'Sklad surovin'],
+    ['city-wall', 'Městská zeď'],
+    ['earth-wall', 'Zemní hráz'],
+    ['palisade', 'Palisáda'],
+    ['stonemasons-lodge', 'Kameník'],
+  ])('%s is "%s" in Czech', (id, cs) => {
+    expect(byId.get(id)?.name.cs).toBe(cs);
+  });
+
   it('only requires known buildings', () => {
     for (const b of buildings)
       for (const r of b.requires) {

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test('building calculator: range in URL drives the result, stepper changes it', async ({ page }) => {
   await page.goto('/buildings/warehouse?from=0&lvl=2');
-  await expect(page.getByRole('heading', { level: 1, name: 'Warehouse' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Sklad surovin' })).toBeVisible();
   await expect(page.getByText('Cena (2 lvl)')).toBeVisible();
   await page.getByRole('button', { name: 'Na level: zvýšit' }).click();
   await expect(page).toHaveURL(/lvl=3/);
@@ -15,24 +15,24 @@ test('buildings catalog hides other tribes’ special buildings', async ({ page 
   await page.goto('/');
   await page.getByRole('group', { name: 'Národ' }).getByRole('button', { name: 'Germáni' }).click();
   await page.goto('/buildings');
-  await expect(page.getByRole('link', { name: /Earth Wall/ })).toBeVisible();
-  await expect(page.getByRole('link', { name: /City Wall/ })).toHaveCount(0);
+  await expect(page.getByRole('link', { name: /Zemní hráz/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Městská zeď/ })).toHaveCount(0);
 });
 
 test('buildings catalog filters by category', async ({ page }) => {
   await page.goto('/buildings');
   await page.getByRole('button', { name: /Armáda/ }).click();
   await expect(page).toHaveURL(/cat=military/);
-  await expect(page.getByRole('link', { name: /Barracks/ }).first()).toBeVisible();
-  await expect(page.getByRole('link', { name: /Woodcutter/ })).toHaveCount(0);
+  await expect(page.getByRole('link', { name: /Kasárny/ }).first()).toBeVisible();
+  await expect(page.getByRole('link', { name: /Dřevorubec/ })).toHaveCount(0);
 });
 
 test('walls: own wall by default, other walls and levels via URL', async ({ page }) => {
   await page.goto('/walls');
-  await expect(page.getByRole('heading', { level: 2, name: /City Wall/ })).toBeVisible();
-  await page.getByRole('button', { name: /Earth Wall/ }).click();
+  await expect(page.getByRole('heading', { level: 2, name: /Městská zeď/ })).toBeVisible();
+  await page.getByRole('button', { name: /Zemní hráz/ }).click();
   await expect(page).toHaveURL(/wall=teuton/);
-  await expect(page.getByRole('heading', { level: 2, name: /Earth Wall/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: /Zemní hráz/ })).toBeVisible();
   await page.getByRole('slider').fill('15');
   await expect(page).toHaveURL(/lvl=15/);
   await expect(page.getByRole('heading', { name: /na levelu 15/ })).toBeVisible();

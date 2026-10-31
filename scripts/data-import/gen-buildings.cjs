@@ -1,11 +1,20 @@
-// One-off generator: scratchpad/buildings.json -> src/data/buildings.ts
+// Generator: sources/buildings.json (+ sources/building-names.json) -> src/data/buildings.ts
 const fs = require('fs');
+const path = require('path');
 const [, , input, output] = process.argv;
 const d = JSON.parse(fs.readFileSync(input, 'utf8'));
 const q = (s) => JSON.stringify(s);
 const num = (n) => String(Math.round(n * 10000) / 10000);
 
-const nameOf = (id) => d.buildings.find((b) => b.id === id)?.name ?? id;
+// Official in-game names in every UI language, keyed by the game's building id (gid).
+const names = JSON.parse(fs.readFileSync(path.join(path.dirname(input), 'building-names.json'), 'utf8'));
+const localName = (b) => {
+  const n = names.names[b.gid];
+  if (!n) throw new Error(`${b.id}: no in-game name for gid ${b.gid}`);
+  if (n.en !== b.name) throw new Error(`${b.id}: calculator says "${b.name}", game client says "${n.en}"`);
+  return n;
+};
+const nameOf = (id) => localName(d.buildings.find((b) => b.id === id));
 
 // Notes derived from the research flags — our own wording, in every UI language.
 function notesFor(b) {
@@ -19,15 +28,12 @@ function notesFor(b) {
     );
   }
   if (b.excludes?.length) {
-    const list = b.excludes.map(nameOf).join(', ');
-    add(`Nelze mít zároveň s: ${list}.`, `Cannot coexist with: ${list}.`);
+    const list = (lang) => b.excludes.map((id) => nameOf(id)[lang]).join(', ');
+    add(`Nelze mít zároveň s: ${list('cs')}.`, `Cannot coexist with: ${list('en')}.`);
   }
   if (b.uniqueInAccount) add('Jen jeden na účet.', 'Only one per account.');
   if (b.notInWwVillage)
-    add(
-      'Nelze postavit ve vesnici s Wonder of the World.',
-      'Cannot be built in a Wonder of the World village.',
-    );
+    add('Nelze postavit ve vesnici s Divem světa.', 'Cannot be built in a Wonder of the World village.');
   if (b.costRule)
     add(
       'Level 1 má zvláštní cenu, další levely se počítají podle běžného vzorce.',
@@ -35,7 +41,7 @@ function notesFor(b) {
     );
   if (b.convertedFrom === 'hidden-treasury')
     add(
-      'Nestaví se přímo – vzniká aktivací Hidden Treasury králem, vicekrálem nebo vévodou s volným slotem na pokladnici.',
+      'Nestaví se přímo – vzniká, když král, vicekrál nebo vévoda s volným slotem na pokladnici aktivuje Skrytou pokladnici.',
       'Not built directly — a king, vice king or duke with a free treasury slot activates a Hidden Treasury.',
     );
   if (b.oasisSlotsAt) {
@@ -78,7 +84,7 @@ const out = d.buildings.map((b) => {
   );
   const parts = [
     `id: ${q(b.id)}`,
-    `name: ${q(b.name)}`,
+    `name: ${q(localName(b))}`,
     `category: ${q(CATEGORY[b.category])}`,
     `maxLevel: ${b.maxLevel}`,
     `tribe: ${b.tribe ? q(b.tribe) : 'null'}`,
@@ -125,6 +131,8 @@ export const buildingsVerifiedAt = ${q(d.verifiedAt)};
 export const buildingsSource: readonly SourceInfo[] = [
   { source: 'https://tk-kb.kingdoms.com/en-US/buildings', verifiedAt: buildingsVerifiedAt },
   { source: 'https://support.kingdoms.com/en/collections/42-buildings', verifiedAt: buildingsVerifiedAt },
+  // building names exactly as the game shows them (official client localization, client ${names.clientVersion})
+  { source: ${q(names.source[0])}, verifiedAt: ${q(names.verifiedAt)} },
 ];
 
 export const buildings: readonly Building[] = [

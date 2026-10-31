@@ -35,9 +35,10 @@ export function buildSearchIndex(t: TFunction, lang: Lang): SearchEntry[] {
     ...buildings.map((b): SearchEntry => ({
       id: `building:${b.id}`,
       kind: 'building',
-      title: b.name,
+      title: b.name[lang],
       subtitle: `${t(`buildingCategory.${b.category}`)} · ${t('buildings.maxLevel', { n: b.maxLevel })}`,
-      keywords: ['budova', 'building', b.category],
+      // the other language stays searchable
+      keywords: ['budova', 'building', b.category, b.name.cs, b.name.en],
       path: `/buildings/${b.id}`,
     })),
     ...units.map((u): SearchEntry => ({
@@ -53,7 +54,7 @@ export function buildSearchIndex(t: TFunction, lang: Lang): SearchEntry[] {
       kind: 'page',
       title: t('nav.walls'),
       subtitle: t('search.page.walls'),
-      keywords: ['walls', 'zdi', 'hradby', 'zed', 'berani', 'rams'],
+      keywords: ['walls', 'zdi', 'hradby', 'zed', 'palisada', 'hraz', 'berani', 'rams'],
       path: '/walls',
     },
     {

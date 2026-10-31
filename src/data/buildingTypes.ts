@@ -26,8 +26,8 @@ export interface BuildingRequirement {
 export interface Building {
   /** Stable slug — used in URLs, never change it. */
   readonly id: string;
-  /** In-game English name. */
-  readonly name: string;
+  /** Name exactly as the game shows it, per UI language. */
+  readonly name: Localized;
   readonly category: BuildingCategory;
   readonly maxLevel: number;
   readonly tribe: Tribe | null;

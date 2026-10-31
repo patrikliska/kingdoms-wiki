@@ -27,7 +27,7 @@ export const cs = {
   'search.kind.tip': 'Rada',
   'search.kind.page': 'Stránka',
   'search.page.tribes': 'Římané, Galové, Germáni – srovnání',
-  'search.page.walls': 'City Wall, Palisade, Earth Wall – bonus a cena',
+  'search.page.walls': 'Městská zeď, Palisáda, Zemní hráz – bonus a cena',
   'search.page.daily': 'Jak fungují denní úkoly',
 
   // Settings
@@ -71,7 +71,7 @@ export const cs = {
   'home.blurb.quests': 'Odměny, prerekvizity a co se odemkne. Součet odměn ve větvi.',
   'home.blurb.tribes': 'Římané, Galové, Germáni – obchodníci, speciální budovy, hrdina.',
   'home.blurb.buildings': 'Ceny po levelech, kumulativní cena, prerekvizity, čas stavby.',
-  'home.blurb.walls': 'City Wall, Palisade, Earth Wall – cena a obranný bonus.',
+  'home.blurb.walls': 'Městská zeď, Palisáda, Zemní hráz – cena a obranný bonus.',
   'home.blurb.units': 'Útok, obrana, cena, rychlost a nosnost pro tvůj národ.',
 
   // Quests
@@ -149,7 +149,7 @@ export const cs = {
   'buildings.cp': 'Kulturní body',
   'buildings.cpValue': '+{n} / den',
   'buildings.timeNote': 'Časy podle oficiální kalkulačky, bez bonusů za věrnost (fealty) a prestiž.',
-  'buildings.mbNote': 'U Main Building se počítá s jeho aktuálním levelem.',
+  'buildings.mbNote': 'U Hlavní budovy se počítá s jejím aktuálním levelem.',
   'buildings.speedNote': 'Produkce v tabulce je pro rychlost 1×.',
   'buildings.allLevels': 'Všechny levely',
   'buildings.tableCaption': '{name} – ceny a efekty po levelech',
@@ -204,10 +204,10 @@ export const cs = {
     'Obranný bonus násobí obranu jednotek ve vesnici; obrana navíc se přičítá k celkové obraně.',
   'walls.compareCaption': 'Srovnání zdí – bonus a obrana navíc',
   'walls.compareNote':
-    'V buňce: obranný bonus · obrana navíc. City Wall má nejvyšší bonus, ale nejsnáz ji zboří berani; Earth Wall je naopak nejodolnější s nejnižším bonusem (podle oficiální nápovědy).',
+    'V buňce: obranný bonus · obrana navíc. Městská zeď má nejvyšší bonus, ale nejsnáz ji zboří berani; Zemní hráz je naopak nejodolnější s nejnižším bonusem (podle oficiální nápovědy).',
   'walls.ditchText':
     'Příkop přidává obranný bonus navíc k hradbám a berani ani katapulty ho nepoškodí. Staví se jen ve městě a může ho mít každý národ. Hodnotu bonusu po levelech oficiální data neuvádějí.',
-  'walls.ditchLink': 'Ceny Water Ditch po levelech',
+  'walls.ditchLink': 'Ceny Vodního příkopu po levelech',
 
   // Units
   'units.view': 'Zobrazení',

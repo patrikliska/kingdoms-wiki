@@ -54,7 +54,7 @@ function BuildingDetail({ building: b }: { readonly building: Building }) {
   const fmt = useFormat();
   const tribe = useAtomValue(tribeAtom);
   const [params, setParams] = useSearchParams();
-  useTrackRecent({ path: `/buildings/${b.id}`, title: b.name, kind: 'building' });
+  useTrackRecent({ path: `/buildings/${b.id}`, title: l(b.name), kind: 'building' });
 
   const to = intParam(params.get('lvl'), b.maxLevel, 1, b.maxLevel);
   const from = intParam(params.get('from'), 0, 0, to - 1);
@@ -151,7 +151,7 @@ function BuildingDetail({ building: b }: { readonly building: Building }) {
       </Link>
 
       <PageHeader
-        title={b.name}
+        title={l(b.name)}
         eyebrow={
           <span className={styles.eyebrow}>
             <span className={styles.cardIcon} data-cat={b.category}>
@@ -237,14 +237,14 @@ function BuildingDetail({ building: b }: { readonly building: Building }) {
               {b.requires.map((r) => (
                 <li key={r.id}>
                   <Link to={`/buildings/${r.id}?lvl=${r.level}`} className={styles.req}>
-                    {buildingName(r.id)}
+                    {l(buildingName(r.id))}
                     <Badge tone="accent">{r.level}</Badge>
                   </Link>
                   {r.alt?.map((a) => (
                     <span key={a} className={styles.reqAlt}>
                       {t('buildings.or')}{' '}
                       <Link to={`/buildings/${a}`} className={styles.req}>
-                        {buildingName(a)}
+                        {l(buildingName(a))}
                       </Link>
                     </span>
                   ))}
@@ -275,7 +275,7 @@ function BuildingDetail({ building: b }: { readonly building: Building }) {
       <section aria-labelledby="levels-title" className={layout.stack}>
         <h2 id="levels-title">{t('buildings.allLevels')}</h2>
         <DataTable
-          caption={t('buildings.tableCaption', { name: b.name })}
+          caption={t('buildings.tableCaption', { name: l(b.name) })}
           columns={columns}
           rows={b.levels}
           rowKey={(lv) => String(lv.lvl)}

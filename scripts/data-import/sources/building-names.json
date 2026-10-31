@@ -1,0 +1,183 @@
+{
+ "source": [
+  "https://static.kingdoms.com/game/0.120.30/lang/cz.js",
+  "https://static.kingdoms.com/game/0.120.30/lang/en.js"
+ ],
+ "clientVersion": "0.120.30",
+ "verifiedAt": "2026-10-31",
+ "note": "Official in-game building names (Building_<gid>) from the public game client localization. Names only.",
+ "names": {
+  "1": {
+   "cs": "Dřevorubec",
+   "en": "Woodcutter"
+  },
+  "2": {
+   "cs": "Hliněný důl",
+   "en": "Clay Pit"
+  },
+  "3": {
+   "cs": "Železný důl",
+   "en": "Iron Mine"
+  },
+  "4": {
+   "cs": "Obilné pole",
+   "en": "Cropland"
+  },
+  "5": {
+   "cs": "Pila",
+   "en": "Sawmill"
+  },
+  "6": {
+   "cs": "Cihelna",
+   "en": "Brickyard"
+  },
+  "7": {
+   "cs": "Slévárna",
+   "en": "Iron Foundry"
+  },
+  "8": {
+   "cs": "Mlýn",
+   "en": "Grain Mill"
+  },
+  "9": {
+   "cs": "Pekárna",
+   "en": "Bakery"
+  },
+  "10": {
+   "cs": "Sklad surovin",
+   "en": "Warehouse"
+  },
+  "11": {
+   "cs": "Sýpka",
+   "en": "Granary"
+  },
+  "13": {
+   "cs": "Zbrojnice",
+   "en": "Smithy"
+  },
+  "14": {
+   "cs": "Turnajové hřiště",
+   "en": "Tournament Square"
+  },
+  "15": {
+   "cs": "Hlavní budova",
+   "en": "Main Building"
+  },
+  "16": {
+   "cs": "Shromaždiště",
+   "en": "Rally Point"
+  },
+  "17": {
+   "cs": "Tržiště",
+   "en": "Marketplace"
+  },
+  "18": {
+   "cs": "Ambasáda",
+   "en": "Embassy"
+  },
+  "19": {
+   "cs": "Kasárny",
+   "en": "Barracks"
+  },
+  "20": {
+   "cs": "Stáje",
+   "en": "Stable"
+  },
+  "21": {
+   "cs": "Dílna",
+   "en": "Workshop"
+  },
+  "22": {
+   "cs": "Akademie",
+   "en": "Academy"
+  },
+  "23": {
+   "cs": "Úkryt",
+   "en": "Cranny"
+  },
+  "24": {
+   "cs": "Radnice",
+   "en": "Town Hall"
+  },
+  "25": {
+   "cs": "Rezidence",
+   "en": "Residence"
+  },
+  "26": {
+   "cs": "Palác",
+   "en": "Palace"
+  },
+  "27": {
+   "cs": "Pokladnice",
+   "en": "Treasury"
+  },
+  "28": {
+   "cs": "Obchodní kancelář",
+   "en": "Trade Office"
+  },
+  "29": {
+   "cs": "Velké kasárny",
+   "en": "Great Barracks"
+  },
+  "30": {
+   "cs": "Velké stáje",
+   "en": "Great Stable"
+  },
+  "31": {
+   "cs": "Městská zeď",
+   "en": "City Wall"
+  },
+  "32": {
+   "cs": "Zemní hráz",
+   "en": "Earth Wall"
+  },
+  "33": {
+   "cs": "Palisáda",
+   "en": "Palisade"
+  },
+  "34": {
+   "cs": "Kameník",
+   "en": "Stonemason's Lodge"
+  },
+  "35": {
+   "cs": "Pivovar",
+   "en": "Brewery"
+  },
+  "36": {
+   "cs": "Pasti",
+   "en": "Trapper"
+  },
+  "38": {
+   "cs": "Velký sklad",
+   "en": "Great Warehouse"
+  },
+  "39": {
+   "cs": "Velká sýpka",
+   "en": "Great Granary"
+  },
+  "40": {
+   "cs": "Div světa",
+   "en": "Wonder of the World"
+  },
+  "41": {
+   "cs": "Koňské napajedlo",
+   "en": "Horse Drinking Trough"
+  },
+  "42": {
+   "cs": "Vodní příkop",
+   "en": "Water Ditch"
+  },
+  "43": {
+   "cs": "Natarská zeď",
+   "en": "Natarian Wall"
+  },
+  "45": {
+   "cs": "Skrytá pokladnice",
+   "en": "Hidden Treasury"
+  },
+  "46": {
+   "cs": "Ranhojičův stan",
+   "en": "Healing Tent"
+  }
+ }
+}

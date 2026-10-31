@@ -7,7 +7,8 @@ import { buildings } from '../data/buildings';
 import { quests } from '../data/quests';
 import { tribes } from '../data/tribes';
 import { units } from '../data/units';
-import { useT, type MessageKey } from '../lib/i18n';
+import type { Lang } from '../domain/types';
+import { useLang, useT, type MessageKey } from '../lib/i18n';
 import { MODULES } from './nav';
 import { recentAtom, searchOpenAtom, tribeAtom, type RecentItem } from './state';
 import styles from './HomePage.module.css';
@@ -18,8 +19,19 @@ const recentIcon: Record<RecentItem['kind'], IconName> = {
   unit: 'units',
 };
 
+const nameOf = (id: string, lang: Lang) => buildings.find((b) => b.id === id)?.name[lang] ?? id;
+
+/** Saved titles are in the language of the visit; show quests and buildings in the current one. */
+function recentTitle(item: RecentItem, lang: Lang): string {
+  const id = item.path.split(/[/?]/)[2] ?? '';
+  if (item.kind === 'building') return buildings.find((b) => b.id === id)?.name[lang] ?? item.title;
+  if (item.kind === 'quest') return quests.find((q) => q.id === id)?.name[lang] ?? item.title;
+  return item.title;
+}
+
 export function HomePage() {
   const t = useT();
+  const lang = useLang();
   const tribe = useAtomValue(tribeAtom);
   const recent = useAtomValue(recentAtom);
   const openSearch = useSetAtom(searchOpenAtom);
@@ -41,20 +53,24 @@ export function HomePage() {
 
   const settler = units.find((u) => u.tribe === tribe && u.type === 'settler');
   const quick: { to: string; label: string; icon: IconName }[] = [
-    { to: '/walls', label: t('home.quick.wall', { wall: tribes[tribe].wall.name }), icon: 'walls' },
+    {
+      to: '/walls',
+      label: t('home.quick.wall', { wall: nameOf(tribes[tribe].wall.id, lang) }),
+      icon: 'walls',
+    },
     {
       to: '/buildings/warehouse?lvl=20',
-      label: t('home.quick.building', { name: 'Warehouse', lvl: 20 }),
+      label: t('home.quick.building', { name: nameOf('warehouse', lang), lvl: 20 }),
       icon: 'buildings',
     },
     {
       to: '/buildings/main-building?lvl=20',
-      label: t('home.quick.building', { name: 'Main Building', lvl: 20 }),
+      label: t('home.quick.building', { name: nameOf('main-building', lang), lvl: 20 }),
       icon: 'buildings',
     },
     {
       to: '/buildings/residence?lvl=10',
-      label: t('home.quick.building', { name: 'Residence', lvl: 10 }),
+      label: t('home.quick.building', { name: nameOf('residence', lang), lvl: 10 }),
       icon: 'buildings',
     },
     ...(settler
@@ -91,7 +107,7 @@ export function HomePage() {
               <li key={r.path}>
                 <Link to={r.path} className={styles.recentItem}>
                   <Icon name={recentIcon[r.kind]} size={16} />
-                  <span>{r.title}</span>
+                  <span>{recentTitle(r, lang)}</span>
                 </Link>
               </li>
             ))}

@@ -2,9 +2,8 @@
 import type { Localized, SourceInfo, Tribe } from '../domain/types';
 
 export interface SpecialBuilding {
+  /** Building id — the name comes from the building data. */
   readonly id: string;
-  /** In-game English name. */
-  readonly name: string;
   readonly summary: Localized;
   readonly source: string;
 }
@@ -12,7 +11,7 @@ export interface SpecialBuilding {
 export interface TribeInfo {
   readonly id: Tribe;
   readonly merchant: { readonly capacity: number; readonly speed: number };
-  readonly wall: { readonly id: string; readonly name: string; readonly summary: Localized };
+  readonly wall: { readonly id: string; readonly summary: Localized };
   readonly specialBuildings: readonly SpecialBuilding[];
   readonly heroBonus: Localized;
   readonly heroBonusNote?: Localized;
@@ -33,7 +32,6 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
     merchant: { capacity: 500, speed: 16 },
     wall: {
       id: 'city-wall',
-      name: 'City Wall',
       summary: {
         cs: 'Vysoký obranný bonus, ale berani ji snadno zboří.',
         en: 'High defence bonus, but rams knock it down easily.',
@@ -42,9 +40,8 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
     specialBuildings: [
       {
         id: 'horse-drinking-trough',
-        name: 'Horse Drinking Trough',
         summary: {
-          cs: 'Jízda se cvičí o 1 % rychleji za každý level a spotřebuje méně obilí; zrychluje i léčení. Vyžaduje Rally Point 10 a Stable 20.',
+          cs: 'Jízda se cvičí o 1 % rychleji za každý level a spotřebuje méně obilí; zrychluje i léčení. Vyžaduje Shromaždiště 10 a Stáje 20.',
           en: 'Cavalry trains 1% faster per level and eats less crop; also speeds up healing. Requires Rally Point 10 and Stable 20.',
         },
         source: art('90-horse-drinking-trough-romans'),
@@ -74,7 +71,7 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
       },
       { cs: 'Senator výrazně snižuje loajalitu.', en: 'The Senator lowers loyalty strongly.' },
       {
-        cs: 'Trade Office vyvažuje malou nosnost obchodníků.',
+        cs: 'Obchodní kancelář vyvažuje malou nosnost obchodníků.',
         en: 'The Trade Office makes up for the small merchant capacity.',
       },
     ],
@@ -86,7 +83,6 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
     merchant: { capacity: 750, speed: 24 },
     wall: {
       id: 'palisade',
-      name: 'Palisade',
       summary: {
         cs: 'Oficiální nápověda její odolnost slovně nehodnotí.',
         en: 'The official help doesn’t rate its durability.',
@@ -95,7 +91,6 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
     specialBuildings: [
       {
         id: 'cranny',
-        name: 'Cranny',
         summary: {
           cs: 'Galská skrýš schová dvojnásobek surovin.',
           en: 'A Gaul cranny hides twice as many resources.',
@@ -104,9 +99,8 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
       },
       {
         id: 'trapper',
-        name: 'Trapper',
         summary: {
-          cs: 'Před bitvou chytí část útočících jednotek; zajatci dál jedí obilí ve své domovské vesnici. Po levelu 20 lze ve vesnici postavit další. Vyžaduje Rally Point 1.',
+          cs: 'Před bitvou chytí část útočících jednotek; zajatci dál jedí obilí ve své domovské vesnici. Po levelu 20 lze ve vesnici postavit další. Vyžaduje Shromaždiště 1.',
           en: 'Captures part of the attacking troops before the battle; prisoners keep eating crop in their home village. Another one can be built after level 20. Requires Rally Point 1.',
         },
         source: art('92-trapper-gauls'),
@@ -138,7 +132,6 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
     merchant: { capacity: 1000, speed: 12 },
     wall: {
       id: 'earth-wall',
-      name: 'Earth Wall',
       summary: {
         cs: 'Těžko zbořitelná, ale s nízkým obranným bonusem.',
         en: 'Hard to destroy, but with a low defence bonus.',
@@ -147,9 +140,8 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
     specialBuildings: [
       {
         id: 'brewery',
-        name: 'Brewery',
         summary: {
-          cs: '+1 % útoku za level pro všechny vesnice. Daň: přesvědčování náčelníků je o 50 % slabší a katapulty střílí jen na náhodné cíle. Jen v hlavní vesnici; vyžaduje Granary 20 a Rally Point 10.',
+          cs: '+1 % útoku za level pro všechny vesnice. Daň: přesvědčování náčelníků je o 50 % slabší a katapulty střílí jen na náhodné cíle. Jen v hlavní vesnici; vyžaduje Sýpku 20 a Shromaždiště 10.',
           en: '+1% attack per level for all villages. The price: chiefs persuade 50% less and catapults only hit random targets. Capital only; requires Granary 20 and Rally Point 10.',
         },
         source: art('91-brewery-teutons'),
@@ -178,7 +170,7 @@ export const tribes: Readonly<Record<Tribe, TribeInfo>> = {
         en: 'Long-range attacks need more troops, which are costly to feed.',
       },
       {
-        cs: 'Brewery omezuje cílení katapultů a oslabuje náčelníky.',
+        cs: 'Pivovar omezuje cílení katapultů a oslabuje náčelníky.',
         en: 'The Brewery limits catapult targeting and weakens chiefs.',
       },
     ],

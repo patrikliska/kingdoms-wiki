@@ -8,7 +8,7 @@ const d = JSON.parse(fs.readFileSync(input, 'utf8'));
 // Ids listed in UNVERIFIED are inferred, not rows in the official table.
 const NOTES = {
   wh10: {
-    cs: 'Odměna zvedne Warehouse v aktivní vesnici na úroveň 12 – jen pokud je tam na úrovni 10–11.',
+    cs: 'Odměna zvedne Sklad surovin v aktivní vesnici na úroveň 12 – jen pokud je tam na úrovni 10–11.',
     en: 'The reward raises the Warehouse in the active village to level 12 — only if it is at level 10–11 there.',
   },
   tutorial: {
@@ -40,7 +40,7 @@ const NOTES = {
     en: 'Reward: 700 of one resource of your choice.',
   },
   res5: {
-    cs: 'Odměna zvedne Residence/Palace v aktivní vesnici na úroveň 10 – jen pokud je tam na úrovni 5–9.',
+    cs: 'Odměna zvedne Rezidenci/Palác v aktivní vesnici na úroveň 10 – jen pokud je tam na úrovni 5–9.',
     en: 'The reward raises the Residence/Palace in the active village to level 10 — only if it is at level 5–9 there.',
   },
   own5: {

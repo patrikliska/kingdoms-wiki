@@ -253,7 +253,7 @@ export const quests = [
     role: 'all',
     reward: { wood: 0, clay: 0, iron: 0, crop: 0, other: 'Warehouse level 12' },
     note: {
-      cs: 'Odměna zvedne Warehouse v aktivní vesnici na úroveň 12 – jen pokud je tam na úrovni 10–11.',
+      cs: 'Odměna zvedne Sklad surovin v aktivní vesnici na úroveň 12 – jen pokud je tam na úrovni 10–11.',
       en: 'The reward raises the Warehouse in the active village to level 12 — only if it is at level 10–11 there.',
     },
   },
@@ -1188,7 +1188,7 @@ export const quests = [
     role: 'all',
     reward: { wood: 0, clay: 0, iron: 0, crop: 0, other: 'Residence (or Palace) level 10' },
     note: {
-      cs: 'Odměna zvedne Residence/Palace v aktivní vesnici na úroveň 10 – jen pokud je tam na úrovni 5–9.',
+      cs: 'Odměna zvedne Rezidenci/Palác v aktivní vesnici na úroveň 10 – jen pokud je tam na úrovni 5–9.',
       en: 'The reward raises the Residence/Palace in the active village to level 10 — only if it is at level 5–9 there.',
     },
     aliases: ['Residence (or Palace) level 5'],
