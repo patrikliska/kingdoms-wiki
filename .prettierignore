@@ -1,0 +1,7 @@
+dist
+dev-dist
+pnpm-lock.yaml
+playwright-report
+test-results
+CLAUDE.md
+scripts/data-import/sources
