@@ -1,0 +1,161 @@
+/* ---------- Tribe cards ---------- */
+.tribes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+@media (min-width: 600px) {
+  .tribes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.tribes[data-compact] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tribe {
+  --tribe: var(--text-3);
+  --tribe-bg: var(--surface-2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: start;
+  transition:
+    border-color 0.15s var(--ease),
+    background-color 0.15s var(--ease);
+}
+
+.tribe[data-tribe='roman'] {
+  --tribe: var(--tribe-roman);
+  --tribe-bg: var(--tribe-roman-bg);
+}
+.tribe[data-tribe='gaul'] {
+  --tribe: var(--tribe-gaul);
+  --tribe-bg: var(--tribe-gaul-bg);
+}
+.tribe[data-tribe='teuton'] {
+  --tribe: var(--tribe-teuton);
+  --tribe-bg: var(--tribe-teuton-bg);
+}
+
+.tribe:hover {
+  border-color: var(--tribe);
+}
+
+.tribe[aria-pressed='true'] {
+  border-color: var(--tribe);
+  background: var(--tribe-bg);
+}
+
+.tribes[data-compact] .tribe {
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 6px;
+  text-align: center;
+}
+
+.emblem {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tribe-bg);
+  color: var(--tribe);
+}
+
+.tribes[data-compact] .emblem {
+  width: 34px;
+  height: 34px;
+}
+
+.tribe[aria-pressed='true'] .emblem {
+  background: var(--tribe);
+  color: var(--surface);
+}
+
+.tribeText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tribeName {
+  font-weight: 700;
+}
+
+.tribeHint {
+  font-size: var(--text-xs);
+  color: var(--text-2);
+}
+
+.check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--tribe);
+  color: var(--surface);
+}
+
+/* ---------- Header chip ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 10px 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.chip:hover {
+  background: var(--surface-2);
+}
+
+.chipRole {
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+@media (max-width: 420px) {
+  .chipRole {
+    display: none;
+  }
+}
+
+/* ---------- Sheet sections ---------- */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section h3 {
+  font-size: var(--text-base);
+}
+
+.hint {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  margin-top: -4px;
+}

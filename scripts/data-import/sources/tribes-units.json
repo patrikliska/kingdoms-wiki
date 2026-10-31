@@ -1,0 +1,140 @@
+{
+  "verifiedAt": "2026-10-27",
+  "tribes": {
+    "source": "https://support.kingdoms.com/en/articles/2-tribes",
+    "extraSources": [
+      "https://support.kingdoms.com/en/articles/68-cranny",
+      "https://support.kingdoms.com/en/articles/77-trade-office",
+      "https://support.kingdoms.com/en/articles/85-city-wall-romans",
+      "https://support.kingdoms.com/en/articles/86-earth-wall-teutons",
+      "https://support.kingdoms.com/en/articles/87-palisade-gauls",
+      "https://support.kingdoms.com/en/articles/88-water-ditch",
+      "https://support.kingdoms.com/en/articles/90-horse-drinking-trough-romans",
+      "https://support.kingdoms.com/en/articles/91-brewery-teutons",
+      "https://support.kingdoms.com/en/articles/92-trapper-gauls"
+    ],
+    "notes": [
+      "Tribe cannot be changed during a round: either register in another world, or delete the avatar and re-register in the same world.",
+      "The tribes article does not mention the Gaul Palisade; it comes from the Palisade (Gauls) building article (87).",
+      "Water Ditch article (88) says it can only be built in cities, adds a defense bonus on top of the wall and cannot be damaged by rams or catapults. It does NOT state a tribe restriction (no 'Romans only' label, unlike the walls/Trough/Brewery/Trapper articles). Roman-only status is UNVERIFIED.",
+      "Wall bonus percentages per level are not given in these articles (they point to a building upgrade calculator)."
+    ],
+    "roman": {
+      "name": "Romans",
+      "merchant": { "capacity": 500, "speed": 16 },
+      "wall": { "id": "city-wall", "name": "City Wall", "summary": "high defense bonus, but easy to destroy" },
+      "specialBuildings": [
+        { "id": "horse-drinking-trough", "name": "Horse Drinking Trough", "summary": "Romans only. Cavalry trains 1% faster per level and needs less crop (reduction depends on level); also speeds healing in Healing Tents. Requires Rally Point 10, Stable 20. Can also be built in Roman WW villages.", "source": "https://support.kingdoms.com/en/articles/90-horse-drinking-trough-romans" },
+        { "id": "city-wall", "name": "City Wall", "summary": "Romans only wall type.", "source": "https://support.kingdoms.com/en/articles/85-city-wall-romans" }
+      ],
+      "heroBonus": "+25% strength per skill point",
+      "troopsSummary": "slow, expensive, long training",
+      "strengths": [
+        "powerful troops; Legionnaire and Praetorian are solid defenders",
+        "strong raiding cavalry",
+        "extra construction slot (build two things at once) speeds development",
+        "Senator gives strong loyalty reduction",
+        "Trade Office helps offset the small merchant capacity"
+      ],
+      "weaknesses": ["troop development is slow and costly"],
+      "recommendedFor": "advanced players"
+    },
+    "gaul": {
+      "name": "Gauls",
+      "merchant": { "capacity": 750, "speed": 24 },
+      "wall": { "id": "palisade", "name": "Palisade", "summary": "Gauls-only wall; tribes article gives no qualitative description", "source": "https://support.kingdoms.com/en/articles/87-palisade-gauls" },
+      "specialBuildings": [
+        { "id": "cranny", "name": "Cranny (double capacity)", "summary": "Gaul crannies hide twice as many resources.", "source": "https://support.kingdoms.com/en/articles/68-cranny" },
+        { "id": "trapper", "name": "Trapper", "summary": "Gauls only. Captures part of incoming enemy troops before battle; captured troops keep eating crop from their home village. Not limited to capital; after level 20 further Trappers can be built in the same village. Requires Rally Point 1. Defender can release prisoners (traps repaired free at half build time); attacker or kingdom member frees them only with a successful Attack (not Raid).", "source": "https://support.kingdoms.com/en/articles/92-trapper-gauls" }
+      ],
+      "heroBonus": "+5 fields/h speed for a mounted hero",
+      "troopsSummary": "fast, medium training cost and time",
+      "strengths": [
+        "strong defense",
+        "fast cavalry",
+        "flexible between offense and defense",
+        "trade advantage (fastest merchants)",
+        "Druidrider and Theutates Thunder useful for defense and raiding"
+      ],
+      "weaknesses": ["expensive siege weapons"],
+      "recommendedFor": "beginners"
+    },
+    "teuton": {
+      "name": "Teutons",
+      "merchant": { "capacity": 1000, "speed": 12 },
+      "wall": { "id": "earth-wall", "name": "Earth Wall", "summary": "hard to destroy, but low defense bonus" },
+      "specialBuildings": [
+        { "id": "brewery", "name": "Brewery", "summary": "Teutons only. +1% attack per level for all villages; chief persuasion reduced by 50% and catapults hit only random targets. Capital only; requires Granary 20 and Rally Point 10.", "source": "https://support.kingdoms.com/en/articles/91-brewery-teutons" },
+        { "id": "earth-wall", "name": "Earth Wall", "summary": "Teutons only wall type.", "source": "https://support.kingdoms.com/en/articles/86-earth-wall-teutons" }
+      ],
+      "heroBonus": "20% cranny dip (plunder bonus) when the hero joins an attack",
+      "troopsSummary": "medium speed, cheap, very fast training",
+      "strengths": [
+        "cheap, quickly trained Clubswingers suit constant raiding",
+        "affordable Chiefs",
+        "effective at short range",
+        "Spearfighters counter cavalry"
+      ],
+      "weaknesses": [
+        "long-range attacks need more troops, which are costly to feed",
+        "Brewery restricts catapult targeting and weakens chiefs"
+      ],
+      "recommendedFor": "aggressive, active raiders"
+    }
+  },
+  "units": {
+    "source": [
+      "https://support.kingdoms.com/en/articles/109-troop-specifications",
+      "https://support.kingdoms.com/en/articles/108-troop-research",
+      "https://support.kingdoms.com/en/articles/116-phalanx ... /145-settler-teutons (one article per unit, ids 116-145)",
+      "http://travian.kirilloid.ru/js/units.js (object units.t5 = Kingdoms; troops.php server option value '1.50' labelled 'Kingdoms / T5') - cross-check only"
+    ],
+    "notes": [
+      "attack/defInf/defCav/carry/upkeep: support article 109 table, identical to the per-unit articles and to kirilloid t5.",
+      "cost: per-unit support articles list only wood/clay/iron. Kirilloid t5 explicitly sets crop cost to 0 for all Kingdoms units, so crop = 0.",
+      "speed: from table 109 (also kirilloid t5). CONFLICT: per-unit articles for Senator/Chief show speed 8 (table: 4), Chieftain 10 (table: 5), Settlers 10 (table: 5) - exactly double; possibly written for a faster world. Table value used.",
+      "trainTime (base seconds, building lvl 1, x1 world): NOT published by support.kingdoms.com, so null. 'trainTimeKirilloid' = value kirilloid uses for Kingdoms, but kirilloid's t5 dataset only overrides costs and inherits times from its Legends T4 dataset - unverified for Kingdoms.",
+      "research cost/time from article 108 (time converted from hh:mm:ss to seconds). These research times are exactly 1/3 of kirilloid's T4 research times - either Kingdoms researches 3x faster or the article quotes a 3x world. Treat researchTime as needing verification.",
+      "requires: unit prerequisites as stated in each per-unit article.",
+      "Siege units (rams, catapults) count as infantry in combat; type here is 'siege' for UI grouping.",
+      "Teuton Scout is an infantry scout trained in the Barracks (article 108, kirilloid prod_type 'i').",
+      "Smithy upgrade tables (lvl 1-20 stats & costs) exist in the per-unit articles but were not extracted."
+    ],
+    "roman": [
+      { "id": "legionnaire", "name": "Legionnaire", "attack": 40, "defInf": 35, "defCav": 50, "cost": { "wood": 75, "clay": 50, "iron": 100, "crop": 0 }, "speed": 6, "carry": 50, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1600, "research": null, "requires": "Barracks 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/126-legionnaire" },
+      { "id": "praetorian", "name": "Praetorian", "attack": 30, "defInf": 65, "defCav": 35, "cost": { "wood": 80, "clay": 100, "iron": 160, "crop": 0 }, "speed": 5, "carry": 20, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1760, "research": { "wood": 580, "clay": 500, "iron": 1320, "time": 2360 }, "requires": "Academy 1, Smithy 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/127-praetorian" },
+      { "id": "imperian", "name": "Imperian", "attack": 70, "defInf": 40, "defCav": 25, "cost": { "wood": 100, "clay": 110, "iron": 140, "crop": 0 }, "speed": 7, "carry": 50, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1920, "research": { "wood": 820, "clay": 620, "iron": 1560, "time": 2520 }, "requires": "Academy 5, Smithy 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/128-imperian" },
+      { "id": "equites-legati", "name": "Equites Legati", "attack": 0, "defInf": 20, "defCav": 10, "cost": { "wood": 100, "clay": 140, "iron": 10, "crop": 0 }, "speed": 16, "carry": 0, "upkeep": 2, "trainTime": null, "trainTimeKirilloid": 1360, "research": { "wood": 700, "clay": 660, "iron": 280, "time": 1960 }, "requires": "Academy 5, Stable 1", "building": "stable", "type": "scout", "source": "https://support.kingdoms.com/en/articles/129-equites-legati" },
+      { "id": "equites-imperatoris", "name": "Equites Imperatoris", "attack": 120, "defInf": 65, "defCav": 50, "cost": { "wood": 350, "clay": 260, "iron": 180, "crop": 0 }, "speed": 14, "carry": 100, "upkeep": 3, "trainTime": null, "trainTimeKirilloid": 2640, "research": { "wood": 2740, "clay": 1420, "iron": 1960, "time": 3240 }, "requires": "Academy 5, Stable 5", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/130-equites-imperatoris" },
+      { "id": "equites-caesaris", "name": "Equites Caesaris", "attack": 180, "defInf": 80, "defCav": 105, "cost": { "wood": 280, "clay": 340, "iron": 600, "crop": 0 }, "speed": 10, "carry": 70, "upkeep": 4, "trainTime": null, "trainTimeKirilloid": 3520, "research": { "wood": 2320, "clay": 1900, "iron": 5800, "time": 4120 }, "requires": "Academy 5, Stable 10", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/131-equites-caesaris" },
+      { "id": "battering-ram", "name": "Battering Ram", "attack": 60, "defInf": 30, "defCav": 75, "cost": { "wood": 700, "clay": 180, "iron": 400, "crop": 0 }, "speed": 4, "carry": 0, "upkeep": 3, "trainTime": null, "trainTimeKirilloid": 4600, "research": { "wood": 4300, "clay": 820, "iron": 3400, "time": 5200 }, "requires": "Academy 10, Workshop 1", "building": "workshop", "type": "siege", "source": "https://support.kingdoms.com/en/articles/132-battering-ram" },
+      { "id": "fire-catapult", "name": "Fire Catapult", "attack": 75, "defInf": 60, "defCav": 10, "cost": { "wood": 690, "clay": 1000, "iron": 400, "crop": 0 }, "speed": 3, "carry": 0, "upkeep": 6, "trainTime": null, "trainTimeKirilloid": 9000, "research": { "wood": 4240, "clay": 4100, "iron": 3400, "time": 9600 }, "requires": "Academy 15, Workshop 10", "building": "workshop", "type": "siege", "source": "https://support.kingdoms.com/en/articles/133-fire-catapult" },
+      { "id": "senator", "name": "Senator", "attack": 50, "defInf": 40, "defCav": 30, "cost": { "wood": 30750, "clay": 27200, "iron": 45000, "crop": 0 }, "speed": 4, "carry": 0, "upkeep": 5, "trainTime": null, "trainTimeKirilloid": 90700, "research": { "wood": 15880, "clay": 13800, "iron": 36400, "time": 8158 }, "requires": "Academy 20, Rally Point 10", "building": "palace|residence", "type": "chief", "source": "https://support.kingdoms.com/en/articles/134-senator" },
+      { "id": "roman-settler", "name": "Settler", "attack": 0, "defInf": 80, "defCav": 80, "cost": { "wood": 3500, "clay": 3000, "iron": 4500, "crop": 0 }, "speed": 5, "carry": 3000, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 26900, "research": null, "requires": "none", "building": "palace|residence", "type": "settler", "source": "https://support.kingdoms.com/en/articles/135-settler-romans" }
+    ],
+    "gaul": [
+      { "id": "phalanx", "name": "Phalanx", "attack": 15, "defInf": 40, "defCav": 50, "cost": { "wood": 85, "clay": 100, "iron": 50, "crop": 0 }, "speed": 7, "carry": 35, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1040, "research": null, "requires": "Barracks 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/116-phalanx" },
+      { "id": "swordsman", "name": "Swordsman", "attack": 65, "defInf": 35, "defCav": 20, "cost": { "wood": 95, "clay": 60, "iron": 140, "crop": 0 }, "speed": 6, "carry": 45, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1440, "research": { "wood": 820, "clay": 400, "iron": 1600, "time": 2040 }, "requires": "Academy 3, Smithy 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/117-swordsman" },
+      { "id": "pathfinder", "name": "Pathfinder", "attack": 0, "defInf": 20, "defCav": 10, "cost": { "wood": 140, "clay": 110, "iron": 20, "crop": 0 }, "speed": 17, "carry": 0, "upkeep": 2, "trainTime": null, "trainTimeKirilloid": 1360, "research": { "wood": 940, "clay": 540, "iron": 360, "time": 1960 }, "requires": "Academy 5, Stable 1", "building": "stable", "type": "scout", "source": "https://support.kingdoms.com/en/articles/118-pathfinder" },
+      { "id": "theutates-thunder", "name": "Theutates Thunder", "attack": 90, "defInf": 25, "defCav": 40, "cost": { "wood": 200, "clay": 280, "iron": 130, "crop": 0 }, "speed": 19, "carry": 75, "upkeep": 2, "trainTime": null, "trainTimeKirilloid": 2480, "research": { "wood": 1600, "clay": 1500, "iron": 1480, "time": 3080 }, "requires": "Academy 5, Stable 3", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/119-theutates-thunder" },
+      { "id": "druidrider", "name": "Druidrider", "attack": 45, "defInf": 115, "defCav": 55, "cost": { "wood": 300, "clay": 270, "iron": 190, "crop": 0 }, "speed": 16, "carry": 35, "upkeep": 2, "trainTime": null, "trainTimeKirilloid": 2560, "research": { "wood": 1900, "clay": 1180, "iron": 1720, "time": 3160 }, "requires": "Academy 5, Stable 5", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/120-druidrider" },
+      { "id": "haeduan", "name": "Haeduan", "attack": 140, "defInf": 60, "defCav": 165, "cost": { "wood": 300, "clay": 380, "iron": 440, "crop": 0 }, "speed": 13, "carry": 65, "upkeep": 3, "trainTime": null, "trainTimeKirilloid": 3120, "research": { "wood": 2380, "clay": 1860, "iron": 4680, "time": 3720 }, "requires": "Academy 15, Stable 10", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/121-haeduan" },
+      { "id": "gaul-ram", "name": "Ram", "attack": 50, "defInf": 30, "defCav": 105, "cost": { "wood": 750, "clay": 370, "iron": 220, "crop": 0 }, "speed": 4, "carry": 0, "upkeep": 3, "trainTime": null, "trainTimeKirilloid": 5000, "research": { "wood": 4600, "clay": 1580, "iron": 1960, "time": 5600 }, "requires": "Academy 10, Workshop 1", "building": "workshop", "type": "siege", "source": "https://support.kingdoms.com/en/articles/122-ram" },
+      { "id": "trebuchet", "name": "Trebuchet", "attack": 70, "defInf": 45, "defCav": 10, "cost": { "wood": 590, "clay": 1200, "iron": 400, "crop": 0 }, "speed": 3, "carry": 0, "upkeep": 6, "trainTime": null, "trainTimeKirilloid": 9000, "research": { "wood": 3640, "clay": 4900, "iron": 3400, "time": 9600 }, "requires": "Academy 15, Workshop 10", "building": "workshop", "type": "siege", "source": "https://support.kingdoms.com/en/articles/123-trebuchet" },
+      { "id": "chieftain", "name": "Chieftain", "attack": 40, "defInf": 50, "defCav": 50, "cost": { "wood": 30750, "clay": 45400, "iron": 31000, "crop": 0 }, "speed": 5, "carry": 0, "upkeep": 4, "trainTime": null, "trainTimeKirilloid": 90700, "research": { "wood": 15880, "clay": 22900, "iron": 25200, "time": 8158 }, "requires": "Academy 20, Rally Point 10", "building": "palace|residence", "type": "chief", "source": "https://support.kingdoms.com/en/articles/124-chieftain" },
+      { "id": "gaul-settler", "name": "Settler", "attack": 0, "defInf": 80, "defCav": 80, "cost": { "wood": 3000, "clay": 4000, "iron": 3000, "crop": 0 }, "speed": 5, "carry": 3000, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 22700, "research": null, "requires": "none", "building": "palace|residence", "type": "settler", "source": "https://support.kingdoms.com/en/articles/125-settler-gauls" }
+    ],
+    "teuton": [
+      { "id": "clubswinger", "name": "Clubswinger", "attack": 40, "defInf": 20, "defCav": 5, "cost": { "wood": 85, "clay": 65, "iron": 30, "crop": 0 }, "speed": 7, "carry": 60, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 720, "research": null, "requires": "Barracks 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/136-clubswinger" },
+      { "id": "spearfighter", "name": "Spearfighter", "attack": 10, "defInf": 35, "defCav": 60, "cost": { "wood": 125, "clay": 50, "iron": 65, "crop": 0 }, "speed": 7, "carry": 40, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1120, "research": { "wood": 850, "clay": 300, "iron": 720, "time": 1720 }, "requires": "Academy 1, Barracks 3", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/137-spearfighter" },
+      { "id": "axefighter", "name": "Axefighter", "attack": 60, "defInf": 30, "defCav": 30, "cost": { "wood": 80, "clay": 65, "iron": 130, "crop": 0 }, "speed": 6, "carry": 50, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1200, "research": { "wood": 700, "clay": 420, "iron": 1480, "time": 1800 }, "requires": "Academy 3, Smithy 1", "building": "barracks", "type": "infantry", "source": "https://support.kingdoms.com/en/articles/138-axefighter" },
+      { "id": "scout", "name": "Scout", "attack": 0, "defInf": 10, "defCav": 5, "cost": { "wood": 140, "clay": 80, "iron": 30, "crop": 0 }, "speed": 9, "carry": 0, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 1120, "research": { "wood": 940, "clay": 420, "iron": 440, "time": 1720 }, "requires": "Academy 1, Main Building 5", "building": "barracks", "type": "scout", "source": "https://support.kingdoms.com/en/articles/139-scout" },
+      { "id": "paladin", "name": "Paladin", "attack": 55, "defInf": 100, "defCav": 40, "cost": { "wood": 330, "clay": 170, "iron": 200, "crop": 0 }, "speed": 10, "carry": 110, "upkeep": 2, "trainTime": null, "trainTimeKirilloid": 2400, "research": { "wood": 2080, "clay": 780, "iron": 1800, "time": 3000 }, "requires": "Academy 5, Stable 1", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/140-paladin" },
+      { "id": "teutonic-knight", "name": "Teutonic Knight", "attack": 150, "defInf": 50, "defCav": 75, "cost": { "wood": 280, "clay": 320, "iron": 260, "crop": 0 }, "speed": 9, "carry": 80, "upkeep": 3, "trainTime": null, "trainTimeKirilloid": 2960, "research": { "wood": 2200, "clay": 1700, "iron": 2760, "time": 3560 }, "requires": "Academy 15, Stable 10", "building": "stable", "type": "cavalry", "source": "https://support.kingdoms.com/en/articles/141-teutonic-knight" },
+      { "id": "teuton-ram", "name": "Ram", "attack": 65, "defInf": 30, "defCav": 80, "cost": { "wood": 800, "clay": 150, "iron": 250, "crop": 0 }, "speed": 4, "carry": 0, "upkeep": 3, "trainTime": null, "trainTimeKirilloid": 4200, "research": { "wood": 4900, "clay": 700, "iron": 2200, "time": 4800 }, "requires": "Academy 10, Workshop 1", "building": "workshop", "type": "siege", "source": "https://support.kingdoms.com/en/articles/142-ram" },
+      { "id": "catapult", "name": "Catapult", "attack": 50, "defInf": 60, "defCav": 10, "cost": { "wood": 660, "clay": 900, "iron": 370, "crop": 0 }, "speed": 3, "carry": 0, "upkeep": 6, "trainTime": null, "trainTimeKirilloid": 9000, "research": { "wood": 4060, "clay": 3700, "iron": 3160, "time": 9600 }, "requires": "Academy 15, Workshop 10", "building": "workshop", "type": "siege", "source": "https://support.kingdoms.com/en/articles/143-catapult" },
+      { "id": "chief", "name": "Chief", "attack": 40, "defInf": 60, "defCav": 40, "cost": { "wood": 35500, "clay": 26600, "iron": 25000, "crop": 0 }, "speed": 4, "carry": 0, "upkeep": 4, "trainTime": null, "trainTimeKirilloid": 70500, "research": { "wood": 18250, "clay": 13500, "iron": 20400, "time": 6475 }, "requires": "Academy 20, Rally Point 5", "building": "palace|residence", "type": "chief", "source": "https://support.kingdoms.com/en/articles/144-chief" },
+      { "id": "teuton-settler", "name": "Settler", "attack": 10, "defInf": 80, "defCav": 80, "cost": { "wood": 4000, "clay": 3500, "iron": 3200, "crop": 0 }, "speed": 5, "carry": 3000, "upkeep": 1, "trainTime": null, "trainTimeKirilloid": 31000, "research": null, "requires": "none", "building": "palace|residence", "type": "settler", "source": "https://support.kingdoms.com/en/articles/145-settler-teutons" }
+    ]
+  }
+}

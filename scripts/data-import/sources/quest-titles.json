@@ -1,0 +1,690 @@
+{
+ "source": [
+  "https://static.kingdoms.com/game/0.120.30/lang/cz_quests_version2.js",
+  "https://static.kingdoms.com/game/0.120.30/lang/en_quests_version2.js",
+  "https://static.kingdoms.com/game/0.120.30/lang/cz.js"
+ ],
+ "clientVersion": "0.120.30",
+ "verifiedAt": "2026-10-27",
+ "note": "Official in-game quest titles (QuestHeader_<id>) and quest givers from the public game client localization. Titles only — descriptions are not copied.",
+ "titles": {
+  "0": {
+   "cs": "Pokračuj kliknutím",
+   "en": "Click to continue"
+  },
+  "1": {
+   "cs": "Osvoboď vesnici",
+   "en": "Liberate the village"
+  },
+  "30": {
+   "cs": "Ubraň vesnici",
+   "en": "Defend the village"
+  },
+  "34": {
+   "cs": "Staň se nesmrtelným",
+   "en": "Immortalize yourself"
+  },
+  "35": {
+   "cs": "Zásoby jídla",
+   "en": "Food supply"
+  },
+  "101": {
+   "cs": "Vyslanec",
+   "en": "Envoy"
+  },
+  "102": {
+   "cs": "Vyslanec",
+   "en": "Envoy"
+  },
+  "202": {
+   "cs": "Přejmenuj svou vesnici",
+   "en": "Rename your village"
+  },
+  "205": {
+   "cs": "Dokončit tutoriál",
+   "en": "Finish the tutorial"
+  },
+  "302": {
+   "cs": "Znič loupežníky",
+   "en": "Defeat the robbers"
+  },
+  "303": {
+   "cs": "Posil své království",
+   "en": "Strengthen kingdom"
+  },
+  "399": {
+   "cs": "Volné úkoly",
+   "en": "Free quests"
+  },
+  "400": {
+   "cs": "Založit království",
+   "en": "Found kingdom"
+  },
+  "401": {
+   "cs": "Ochránit guvernéra",
+   "en": "Protect governor"
+  },
+  "402": {
+   "cs": "Vyzvednout odměnu",
+   "en": "Collect reward"
+  },
+  "403": {
+   "cs": "Založit království",
+   "en": "Found kingdom"
+  },
+  "501": {
+   "cs": "Postav úkryt",
+   "en": "Build Cranny"
+  },
+  "502": {
+   "cs": "3 000 jednotek",
+   "en": "3,000 units"
+  },
+  "503": {
+   "cs": "500 jednotek",
+   "en": "500 units"
+  },
+  "504": {
+   "cs": "5 jednotek",
+   "en": "5 units"
+  },
+  "505": {
+   "cs": "25 jednotek",
+   "en": "25 unit"
+  },
+  "506": {
+   "cs": "100 jednotek",
+   "en": "100 units"
+  },
+  "507": {
+   "cs": "250 jednotek",
+   "en": "250 units"
+  },
+  "508": {
+   "cs": "1 000 jednotek",
+   "en": "1,000 units"
+  },
+  "509": {
+   "cs": "10 000 jednotek",
+   "en": "10,000 units"
+  },
+  "510": {
+   "cs": "Zbrojnice 3",
+   "en": "Smithy level 3"
+  },
+  "511": {
+   "cs": "Kasárny 3",
+   "en": "Barracks 3"
+  },
+  "512": {
+   "cs": "Akademie 5",
+   "en": "Academy level 5"
+  },
+  "514": {
+   "cs": "Vojenská jednotka",
+   "en": "Military unit"
+  },
+  "516": {
+   "cs": "Proveď špionáž",
+   "en": "Conduct espionage"
+  },
+  "517": {
+   "cs": "30 000 jednotek",
+   "en": "30,000 units"
+  },
+  "518": {
+   "cs": "100 000 jednotek",
+   "en": "100,000 units"
+  },
+  "524": {
+   "cs": "Zaútoč na loupežníky",
+   "en": "Attack robber hideout"
+  },
+  "526": {
+   "cs": "Úkryt 5",
+   "en": "Cranny to level 5"
+  },
+  "533": {
+   "cs": "Postav ambasádu",
+   "en": "Build an Embassy"
+  },
+  "536": {
+   "cs": "Postav akademii",
+   "en": "Build an Academy"
+  },
+  "538": {
+   "cs": "Stáje 1",
+   "en": "Stable 1"
+  },
+  "539": {
+   "cs": "Postav dílnu",
+   "en": "Build Workshop"
+  },
+  "540": {
+   "cs": "10 obléhacích jednotek",
+   "en": "10 siege units"
+  },
+  "561": {
+   "cs": "NPC obchodník",
+   "en": "NPC trader"
+  },
+  "600": {
+   "cs": "Jedno od každého na 1",
+   "en": "One of each to 1"
+  },
+  "601": {
+   "cs": "Dřevorubci 1",
+   "en": "Woodcutters to level 1"
+  },
+  "602": {
+   "cs": "Hliněné doly 1",
+   "en": "Clay Pits to level 1"
+  },
+  "603": {
+   "cs": "Železné doly 1",
+   "en": "Iron Mines to 1"
+  },
+  "604": {
+   "cs": "Jedno od každého na 2",
+   "en": "One of each to 2"
+  },
+  "605": {
+   "cs": "Všechny doly na 2",
+   "en": "All resource fields to 2"
+  },
+  "606": {
+   "cs": "Jedno od každého na 5",
+   "en": "One of each to 5"
+  },
+  "607": {
+   "cs": "Všechny doly na 5",
+   "en": "All resource fields to 5"
+  },
+  "608": {
+   "cs": "Sklad surovin 5",
+   "en": "Warehouse level 5"
+  },
+  "609": {
+   "cs": "Všechny doly na 7",
+   "en": "All resource fields to 7"
+  },
+  "610": {
+   "cs": "Dřevorubec 10",
+   "en": "Woodcutter level 10"
+  },
+  "611": {
+   "cs": "Hliněný důl 10",
+   "en": "Clay Pit level 10"
+  },
+  "612": {
+   "cs": "Železný důl 10",
+   "en": "Iron Mine level 10"
+  },
+  "613": {
+   "cs": "Všechny doly na 3",
+   "en": "All resource fields to 3"
+  },
+  "621": {
+   "cs": "Obilná pole 1",
+   "en": "Croplands 1"
+  },
+  "622": {
+   "cs": "Obilná pole 2",
+   "en": "All Croplands to level 2"
+  },
+  "623": {
+   "cs": "Obilné pole 5",
+   "en": "Croplands level 5"
+  },
+  "624": {
+   "cs": "Mlýn",
+   "en": "Construct Grain Mill"
+  },
+  "625": {
+   "cs": "Sýpka 3",
+   "en": "Granary level 3"
+  },
+  "626": {
+   "cs": "Obilné pole 10",
+   "en": "Cropland level 10"
+  },
+  "627": {
+   "cs": "Postav pekárnu",
+   "en": "Build a Bakery"
+  },
+  "628": {
+   "cs": "Sklad surovin 3",
+   "en": "Warehouse level 3"
+  },
+  "629": {
+   "cs": "Obilná pole 5",
+   "en": "All Croplands to 5"
+  },
+  "630": {
+   "cs": "Obilná pole 7",
+   "en": "All Croplands to level 7"
+  },
+  "631": {
+   "cs": "Připoj oázu",
+   "en": "Assign oasis"
+  },
+  "632": {
+   "cs": "Postav cihelnu",
+   "en": "Build Brickyard"
+  },
+  "633": {
+   "cs": "Postav pilu",
+   "en": "Build Sawmill"
+  },
+  "634": {
+   "cs": "Postav slévárnu",
+   "en": "Build Iron Foundry"
+  },
+  "635": {
+   "cs": "Všechny doly na 10",
+   "en": "All resource fields to 10"
+  },
+  "636": {
+   "cs": "Obilná pole 10",
+   "en": "All Croplands to 10"
+  },
+  "637": {
+   "cs": "Všechny doly na 12",
+   "en": "All resource fields to 12"
+  },
+  "638": {
+   "cs": "Obilná pole 12",
+   "en": "All Croplands to 12"
+  },
+  "639": {
+   "cs": "Doly na 10 v 5 vesnicích",
+   "en": "Fields to 10 in 5"
+  },
+  "640": {
+   "cs": "Obilná pole na 10 v 5 vesnicích",
+   "en": "Croplands to 10 in 5"
+  },
+  "641": {
+   "cs": "Doly na 10 v 12 vesnicích",
+   "en": "Fields to 10 in 12"
+  },
+  "642": {
+   "cs": "Obilná pole na 10 v 12 vesnicích",
+   "en": "Croplands to 10 in 12"
+  },
+  "643": {
+   "cs": "Obilná pole 3",
+   "en": "All Croplands to level 3"
+  },
+  "644": {
+   "cs": "Sklad surovin 10",
+   "en": "Warehouse level 10"
+  },
+  "660": {
+   "cs": "Rozebrat ruiny",
+   "en": "Dismantle rubble"
+  },
+  "701": {
+   "cs": "Tržiště",
+   "en": "Build Marketplace"
+  },
+  "702": {
+   "cs": "Sklad",
+   "en": "Construct a Warehouse"
+  },
+  "703": {
+   "cs": "Sýpka",
+   "en": "Construct Granary"
+  },
+  "704": {
+   "cs": "Sýpka 5",
+   "en": "Granary level 5"
+  },
+  "705": {
+   "cs": "Sýpka 10",
+   "en": "Granary level 10"
+  },
+  "712": {
+   "cs": "Postav rezidenci",
+   "en": "Build Residence"
+  },
+  "713": {
+   "cs": "Tržiště 5",
+   "en": "Marketplace level 5"
+  },
+  "714": {
+   "cs": "Rezidence 5",
+   "en": "Residence level 5"
+  },
+  "715": {
+   "cs": "Obchod se surovinami",
+   "en": "Trade resources"
+  },
+  "716": {
+   "cs": "Poslat suroviny",
+   "en": "Send resources"
+  },
+  "717": {
+   "cs": "Okamžité doručení",
+   "en": "Instant delivery"
+  },
+  "721": {
+   "cs": "3 osadníci",
+   "en": "3 Settlers"
+  },
+  "722": {
+   "cs": "Nová vesnice",
+   "en": "New village"
+  },
+  "731": {
+   "cs": "Město nebo nová vesnice",
+   "en": "City or new village"
+  },
+  "732": {
+   "cs": "Udělit městská privilegia",
+   "en": "Grant city privileges"
+  },
+  "733": {
+   "cs": "Radnice",
+   "en": "Construct Town Hall"
+  },
+  "734": {
+   "cs": "Měj 5 vesnic",
+   "en": "Own 5 villages"
+  },
+  "735": {
+   "cs": "Měj 10 vesnic",
+   "en": "Own 10 villages"
+  },
+  "736": {
+   "cs": "Měj 15 vesnic",
+   "en": "Own 15 villages"
+  },
+  "737": {
+   "cs": "Měj 20 vesnic",
+   "en": "Own 20 villages"
+  },
+  "741": {
+   "cs": "Malé slavnosti",
+   "en": "Hold small celebration"
+  },
+  "742": {
+   "cs": "Velké slavnosti",
+   "en": "Large celebration"
+  },
+  "801": {
+   "cs": "Hrdinova produkce",
+   "en": "Hero production"
+  },
+  "802": {
+   "cs": "Dobrodružství",
+   "en": "Go on an adventure"
+  },
+  "811": {
+   "cs": "5 dobrodružství",
+   "en": "5 adventures"
+  },
+  "812": {
+   "cs": "Prodej předmět",
+   "en": "Sell item"
+  },
+  "813": {
+   "cs": "Kup předmět",
+   "en": "Buy item"
+  },
+  "814": {
+   "cs": "Osedlej koně",
+   "en": "Equip a horse"
+  },
+  "815": {
+   "cs": "Přihoď na aukci",
+   "en": "Place a bid"
+  },
+  "820": {
+   "cs": "Plná výbava",
+   "en": "Full gear"
+  },
+  "821": {
+   "cs": "10 dobrodružství",
+   "en": "10 adventures"
+  },
+  "822": {
+   "cs": "20 dobrodružství",
+   "en": "20 adventures"
+  },
+  "823": {
+   "cs": "50 dobrodružství",
+   "en": "50 Adventures"
+  },
+  "824": {
+   "cs": "100 dobrodružství",
+   "en": "100 Adventures"
+  },
+  "825": {
+   "cs": "33 dobrodružství",
+   "en": "33 Adventures"
+  },
+  "826": {
+   "cs": "Dobrodružství",
+   "en": "Adventure"
+  },
+  "827": {
+   "cs": "3 dobrodružství",
+   "en": "3 Adventures"
+  },
+  "828": {
+   "cs": "200 dobrodružství",
+   "en": "200 Adventures"
+  },
+  "829": {
+   "cs": "350 dobrodružství",
+   "en": "350 Adventures"
+  },
+  "830": {
+   "cs": "500 dobrodružství",
+   "en": "500 Adventures"
+  },
+  "831": {
+   "cs": "Hrdina na úrovni 5",
+   "en": "Hero level 5"
+  },
+  "832": {
+   "cs": "Hrdina na úrovni 10",
+   "en": "Hero level 10"
+  },
+  "833": {
+   "cs": "Hrdina na úrovni 25",
+   "en": "Hero level 25"
+  },
+  "834": {
+   "cs": "Hrdina na úrovni 50",
+   "en": "Hero level 50"
+  },
+  "835": {
+   "cs": "Hrdina na úrovni 100",
+   "en": "Hero level 100"
+  },
+  "836": {
+   "cs": "Hrdina na úrovni 150",
+   "en": "Hero level 150"
+  },
+  "837": {
+   "cs": "Hrdina na úrovni 200",
+   "en": "Hero level 200"
+  },
+  "838": {
+   "cs": "Hrdina na úrovni 250",
+   "en": "Hero level 250"
+  },
+  "850": {
+   "cs": "Chyť zvířata",
+   "en": "Catch animals"
+  },
+  "901": {
+   "cs": "Povýšit na vévodu",
+   "en": "Promote a duke"
+  },
+  "902": {
+   "cs": "Zlepši schopnosti hrdiny",
+   "en": "Train up your hero"
+  },
+  "903": {
+   "cs": "Uzdrav hrdinu",
+   "en": "Heal your hero"
+  },
+  "904": {
+   "cs": "Pozvi hráče",
+   "en": "Invite a player"
+  },
+  "905": {
+   "cs": "Okamžitě dokončit",
+   "en": "Finish immediately"
+  },
+  "906": {
+   "cs": "Podpoř dalšího hráče",
+   "en": "Support another player"
+  },
+  "991": {
+   "cs": "Krátké dobrodružství",
+   "en": "Short adventure"
+  },
+  "992": {
+   "cs": "Dlouhé dobrodružství",
+   "en": "Long adventure"
+  },
+  "513_1": {
+   "cs": "Equites Legáti",
+   "en": "Equites Legati"
+  },
+  "513_2": {
+   "cs": "Zvěd",
+   "en": "Scout"
+  },
+  "513_3": {
+   "cs": "Slídič",
+   "en": "Pathfinder"
+  },
+  "515_1": {
+   "cs": "5 Equites Legati",
+   "en": "5 Equites Legati"
+  },
+  "515_2": {
+   "cs": "5 zvědů",
+   "en": "5 Scouts"
+  },
+  "515_3": {
+   "cs": "5 slídičů",
+   "en": "5 Pathfinders"
+  },
+  "519_King": {
+   "cs": "Vyzvednout daně",
+   "en": "Collect a tribute"
+  },
+  "519_Governor": {
+   "cs": "Prodej kradené zboží",
+   "en": "Sell a stolen good"
+  },
+  "520_King": {
+   "cs": "10 výběrů daní",
+   "en": "10 tributes"
+  },
+  "520_Governor": {
+   "cs": "10 truhel kradeného zboží",
+   "en": "10 stolen goods"
+  },
+  "521_King": {
+   "cs": "Vyzvedni daně 50x",
+   "en": "Collect 50 tributes"
+  },
+  "521_Governor": {
+   "cs": "Prodej 50 pytlů kradeného zboží",
+   "en": "Sell 50 stolen goods"
+  },
+  "522_King": {
+   "cs": "Vyzvedni daně 100x",
+   "en": "Collect 100 tributes"
+  },
+  "522_Governor": {
+   "cs": "Prodej 100 pytlů kradeného zboží",
+   "en": "Sell 100 stolen goods"
+  },
+  "523_King": {
+   "cs": "Vyzvedni daně 300x",
+   "en": "Collect 300 tributes"
+  },
+  "523_Governor": {
+   "cs": "Prodej 300 pytlů kradeného zboží",
+   "en": "Sell 300 stolen goods"
+  },
+  "534_King": {
+   "cs": "Vyzvedni daně 1000x",
+   "en": "Collect 1,000 tributes"
+  },
+  "534_Governor": {
+   "cs": "Prodej 1 000 pytlů kradeného zboží",
+   "en": "Sell 1,000 stolen goods"
+  },
+  "535_King": {
+   "cs": "Vyzvedni daně 3000x",
+   "en": "Collect 3,000 tributes"
+  },
+  "535_Governor": {
+   "cs": "Prodej 3 000 pytlů kradeného zboží",
+   "en": "Sell 3,000 stolen goods"
+  },
+  "537_King": {
+   "cs": "Vyzvedni daně 3x",
+   "en": "Collect 3 tributes"
+  },
+  "537_Governor": {
+   "cs": "Prodej 3 pytle kradeného zboží",
+   "en": "Sell 3 stolen goods"
+  }
+ },
+ "givers": {
+  "QuestGiver_1": {
+   "cs": "Wren",
+   "en": "Wren"
+  },
+  "QuestGiver_2": {
+   "cs": "Farmář",
+   "en": "Farmer"
+  },
+  "QuestGiver_3": {
+   "cs": "Marcus",
+   "en": "Marcus"
+  },
+  "QuestGiver_4": {
+   "cs": "Dřevorubec",
+   "en": "Woodcutter"
+  },
+  "QuestGiver_5": {
+   "cs": "Kopáč hlíny",
+   "en": "Clay farmer"
+  },
+  "QuestGiver_6": {
+   "cs": "Horník",
+   "en": "Miner"
+  },
+  "QuestGiver_7": {
+   "cs": "Obchodníci",
+   "en": "Merchants"
+  },
+  "QuestGiver_8": {
+   "cs": "Loupežník",
+   "en": "Robber"
+  },
+  "QuestGiver_9": {
+   "cs": "Náčelník",
+   "en": "Chieftain"
+  },
+  "QuestGiver_10": {
+   "cs": "Vyslanec",
+   "en": "Envoy"
+  },
+  "QuestGiver_11": {
+   "cs": "Dobrodruh",
+   "en": "Adventurer"
+  }
+ }
+}

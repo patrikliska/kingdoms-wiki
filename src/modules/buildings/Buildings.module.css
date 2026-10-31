@@ -1,0 +1,199 @@
+.groupTitle {
+  font-size: var(--text-lg);
+}
+
+/* ---------- Catalog card ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 14px 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  transition:
+    border-color 0.15s var(--ease),
+    box-shadow 0.15s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardIcon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
+.cardIcon[data-cat='resources'] {
+  background: var(--res-crop-bg);
+  color: var(--res-crop);
+}
+
+.cardIcon[data-cat='military'] {
+  background: var(--tribe-roman-bg);
+  color: var(--tribe-roman);
+}
+
+.cardIcon[data-cat='infrastructure'] {
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+}
+
+.cardTitle {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.cardArrow {
+  color: var(--text-3);
+}
+
+.cardBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cardMeta {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+/* ---------- Detail ---------- */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  min-height: 36px;
+  padding: 0 10px 0 4px;
+  margin-bottom: -8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.back:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-2);
+}
+
+.headBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.calcInputs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.calcArrow {
+  margin-bottom: 13px;
+  color: var(--text-3);
+}
+
+.speed {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.calcNote {
+  margin-top: 12px;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+
+.facts {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  align-items: start;
+}
+
+.reqs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reqs li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.req {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 8px 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.req:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.reqAlt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-3);
+  font-size: var(--text-sm);
+}
+
+.caps {
+  margin-top: 12px;
+  font-size: var(--text-sm);
+  color: var(--text-2);
+}
