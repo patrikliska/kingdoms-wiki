@@ -26,7 +26,7 @@ function useDocumentSettings() {
 function Brand({ full = true }: { readonly full?: boolean }) {
   return (
     <Link to="/" className={styles.brand} aria-label="Kingdoms Companion">
-      <img src="/favicon.svg" alt="" width="32" height="32" />
+      <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width="32" height="32" />
       {full && (
         <span className={styles.brandText}>
           Kingdoms <span className={styles.brandSub}>Companion</span>
