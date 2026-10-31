@@ -28,6 +28,21 @@ pull request. A push to `master` additionally builds the site and publishes it t
   (nginx: `try_files $uri /index.html;`).
 - One-time repo setting: _Settings → Pages → Source: GitHub Actions_.
 
+## Player reports
+
+Every page footer and the More page have a **Suggest a correction** form (wrong number, translation,
+site bug, idea). Reports become GitHub issues labelled `from-web` and `needs-triage`, so players don't
+need a GitHub account. A small endpoint in [`worker/`](worker/README.md) keeps the GitHub token secret
+and filters spam (Cloudflare Turnstile, rate limit, honeypot).
+
+```sh
+pnpm report:dev     # local endpoint, dry run (prints issues instead of creating them)
+pnpm report:deploy  # deploy the Cloudflare Worker
+```
+
+Until the endpoint is deployed and `REPORT_ENDPOINT` is set, the form opens a pre-filled GitHub issue.
+Setup steps: [worker/README.md](worker/README.md).
+
 ## Languages
 
 The UI is in Czech and English (CZ / EN switch in the header). The default language is detected in the

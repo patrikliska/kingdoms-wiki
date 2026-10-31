@@ -16,6 +16,7 @@ interface ButtonProps {
   readonly size?: 'sm' | 'md';
   readonly icon?: IconName;
   readonly type?: 'button' | 'submit';
+  readonly disabled?: boolean;
   readonly 'aria-label'?: string;
   readonly 'aria-expanded'?: boolean;
   readonly className?: string;
@@ -28,6 +29,7 @@ export function Button({
   size = 'md',
   icon,
   type = 'button',
+  disabled,
   className,
   ...aria
 }: ButtonProps) {
@@ -38,6 +40,7 @@ export function Button({
       data-variant={variant}
       data-size={size}
       onClick={onClick}
+      disabled={disabled}
       {...aria}
     >
       {icon && <Icon name={icon} size={size === 'sm' ? 16 : 18} />}

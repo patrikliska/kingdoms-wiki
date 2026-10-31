@@ -14,6 +14,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "playwright test",
+    "report:dev": "node worker/src/node-server.ts",
+    "report:deploy": "pnpm dlx wrangler deploy --config worker/wrangler.toml",
     "data:import": "node scripts/data-import/gen-quests.cjs scripts/data-import/sources/quests.json src/data/quests.ts && node scripts/data-import/gen-units.cjs scripts/data-import/sources/tribes-units.json src/data/units.ts && node scripts/data-import/gen-buildings.cjs scripts/data-import/sources/buildings.json src/data/buildings.ts && prettier --write src/data"
   },
   "dependencies": {

@@ -17,7 +17,7 @@ Every data file has a `source` (URL) and `verifiedAt` (ISO date) in its header. 
 
 ## Stack
 
-- **React 19 + TypeScript (strict)**, **Vite**. No backend in the first phase – everything is static, data are typed modules / JSON.
+- **React 19 + TypeScript (strict)**, **Vite**. No backend in the first phase – everything is static, data are typed modules / JSON. The only server code is the report endpoint in `worker/` (see Hosting).
 - Styling: **CSS Modules + CSS custom properties**. No MUI, no Tailwind – we want our own look, not a generic admin feel. Light and dark mode via `prefers-color-scheme` plus a manual switch.
 - State: **Jotai** (`atomWithStorage` for user choices – tribe, role, favourites).
 - Routing: **react-router** (file-ish structure, every module has its own route).
@@ -83,6 +83,7 @@ Rule: `domain/` must not import from `modules/` or from React. All calculations 
 - Now: **GitHub Pages** at `https://patrikliska.github.io/kingdoms-wiki/`, deployed by `.github/workflows/ci.yml` on every push to `master` (after lint, typecheck, unit and e2e tests pass).
 - Later: own domain on our virtual server (the one that already hosts patrikliska.dev).
 - The base path comes from the `BASE_PATH` env variable at build time (`/kingdoms-wiki/` on GitHub Pages, `/` on our own domain). Never hard-code absolute paths like `/favicon.svg` – use `import.meta.env.BASE_URL`; router paths are relative to the router `basename`.
+- **Player reports:** every source footer and the More page have a "Suggest a correction" form. It posts to the report endpoint (`worker/`, a Cloudflare Worker now, Node on our server later), which creates a GitHub issue labelled `from-web` + `needs-triage`. Validation and issue formatting live in `src/domain/report.ts`, shared by both sides. Without `VITE_REPORT_ENDPOINT` the form opens a pre-filled GitHub issue instead. Setup: `worker/README.md`.
 
 ## Code conventions
 
@@ -100,7 +101,7 @@ Rule: `domain/` must not import from `modules/` or from React. All calculations 
 
 - Don't mix in Legends mechanics (artifacts, Egyptians, alliances, ancient powers, Natar WW plans from Legends).
 - Don't copy text or images from official sites – data yes (numbers are not copyrightable), wording in our own words, our own assets.
-- Don't add a backend, accounts or sync until it is clear players want it. Persist locally.
+- Don't add a backend, accounts or sync until it is clear players want it. Persist locally. (The stateless report endpoint is the one exception.)
 - Don't build a "universal wiki". Every module has to answer a specific player question.
 
 ## Open questions (resolve before implementing the module)

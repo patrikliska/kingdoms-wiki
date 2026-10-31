@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router';
 import { Credits } from '../components/Credits';
 import { Icon } from '../components/Icon';
+import { ReportDialog } from '../components/report/ReportDialog';
 import { LangSwitch, SettingsSheet, TribeChip } from '../components/Settings';
 import { useLang, useT } from '../lib/i18n';
 import { MORE_PATHS, SIDEBAR_NAV, TAB_NAV } from './nav';
@@ -142,6 +143,7 @@ export function Layout() {
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
       <SettingsSheet />
+      <ReportDialog />
     </div>
   );
 }
