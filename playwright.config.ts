@@ -11,6 +11,8 @@ export default defineConfig({
     command: 'pnpm build && pnpm preview --port 4173 --strictPort',
     url: 'http://localhost:4173',
     reuseExistingServer: !process.env.CI,
+    // Reports go to a relative endpoint that report.spec.ts fakes; no captcha in tests.
+    env: { VITE_REPORT_ENDPOINT: '/api/report', VITE_TURNSTILE_SITE_KEY: '' },
     timeout: 120_000,
   },
   // Default to a Czech player; i18n.spec.ts overrides locale/time zone per test group.
