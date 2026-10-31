@@ -26,7 +26,7 @@ import { units, unitsSource } from '../../data/units';
 import { totalResources } from '../../domain/resources';
 import { unitRatios } from '../../domain/units';
 import { TRIBES, type Tribe } from '../../domain/types';
-import { useFormat, useT } from '../../lib/i18n';
+import { useFormat, useL, useT } from '../../lib/i18n';
 import { buildingName } from '../buildings/buildingIndex';
 import styles from './Units.module.css';
 
@@ -251,6 +251,7 @@ export function UnitsPage() {
 
 function UnitDetail({ unit, onClose }: { readonly unit: Unit; readonly onClose: () => void }) {
   const t = useT();
+  const l = useL();
   const fmt = useFormat();
   useTrackRecent({ path: `/units/${unit.id}`, title: unit.name, kind: 'unit' });
   const n = fmt.number;
@@ -261,7 +262,7 @@ function UnitDetail({ unit, onClose }: { readonly unit: Unit; readonly onClose: 
       <div className={styles.metaBadges}>
         <Badge tribe={unit.tribe}>{t(`tribe.${unit.tribe}`)}</Badge>
         <Badge icon={typeIcon[unit.type]}>{t(`unitType.${unit.type}`)}</Badge>
-        <Badge>{buildingName(unit.building)}</Badge>
+        <Badge>{l(buildingName(unit.building))}</Badge>
       </div>
 
       <StatGrid>
@@ -306,7 +307,7 @@ function UnitDetail({ unit, onClose }: { readonly unit: Unit; readonly onClose: 
                 to={`/buildings/${req.building}?lvl=${req.level}`}
                 className={styles.req}
               >
-                {buildingName(req.building)}
+                {l(buildingName(req.building))}
                 <Badge tone="accent">{req.level}</Badge>
               </Link>
             ))}

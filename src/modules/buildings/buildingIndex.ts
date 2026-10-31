@@ -1,15 +1,20 @@
 import { buildings } from '../../data/buildings';
 import type { Building, BuildingCategory } from '../../data/buildingTypes';
 import { NO_MAIN_BUILDING_FACTOR } from '../../domain/buildings';
-import type { Tribe } from '../../domain/types';
+import type { Localized, Tribe } from '../../domain/types';
 import type { Formatter } from '../../lib/format';
 import type { MessageKey, TFunction } from '../../lib/i18n';
 
 export const buildingById: ReadonlyMap<string, Building> = new Map(buildings.map((b) => [b.id, b]));
 
-export function buildingName(id: string): string {
-  if (id === 'residence-palace') return 'Residence / Palace';
-  return buildingById.get(id)?.name ?? id;
+/** In-game name in every UI language; `residence-palace` means either of the two. */
+export function buildingName(id: string): Localized {
+  if (id === 'residence-palace') {
+    const r = buildingName('residence');
+    const p = buildingName('palace');
+    return { cs: `${r.cs} / ${p.cs}`, en: `${r.en} / ${p.en}` };
+  }
+  return buildingById.get(id)?.name ?? { cs: id, en: id };
 }
 
 /** Main Building factor that applies while building `lvl` of `building`, with the village's MB at `mbLevel`. */

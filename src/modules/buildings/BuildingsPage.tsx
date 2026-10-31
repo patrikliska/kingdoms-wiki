@@ -8,7 +8,7 @@ import { SourceFooter } from '../../components/SourceFooter';
 import { Badge, ChipGroup, EmptyState, PageHeader, SearchField } from '../../components/ui';
 import { buildingsSource } from '../../data/buildings';
 import type { Building, BuildingCategory } from '../../data/buildingTypes';
-import { useT } from '../../lib/i18n';
+import { useL, useT } from '../../lib/i18n';
 import { normalize } from '../../lib/search';
 import { availableFor, buildingName, CATEGORIES } from './buildingIndex';
 import { categoryIcon } from './categoryIcon';
@@ -38,7 +38,7 @@ export function BuildingsPage() {
 
   const matching = availableFor(tribe).filter((b) => {
     if (words.length === 0) return true;
-    const hay = normalize(`${b.name} ${b.id} ${t(`buildingCategory.${b.category}`)}`);
+    const hay = normalize(`${b.name.cs} ${b.name.en} ${b.id} ${t(`buildingCategory.${b.category}`)}`);
     return words.every((w) => hay.includes(w));
   });
   const list = category === 'all' ? matching : matching.filter((b) => b.category === category);
@@ -97,6 +97,7 @@ export function BuildingsPage() {
 
 function BuildingCard({ building: b }: { readonly building: Building }) {
   const t = useT();
+  const l = useL();
   const first = b.levels[0];
   const restricted = !b.where.includes('village');
   return (
@@ -105,7 +106,7 @@ function BuildingCard({ building: b }: { readonly building: Building }) {
         <span className={styles.cardIcon} data-cat={b.category}>
           <Icon name={categoryIcon[b.category]} size={20} />
         </span>
-        <span className={styles.cardTitle}>{b.name}</span>
+        <span className={styles.cardTitle}>{l(b.name)}</span>
         <Icon name="chevronRight" size={18} className={styles.cardArrow} />
       </span>
       <span className={styles.cardBadges}>
@@ -117,7 +118,7 @@ function BuildingCard({ building: b }: { readonly building: Building }) {
       {b.requires.length > 0 && (
         <span className={styles.cardMeta}>
           {t('buildings.requiresList', {
-            list: b.requires.map((r) => `${buildingName(r.id)} ${r.level}`).join(', '),
+            list: b.requires.map((r) => `${l(buildingName(r.id))} ${r.level}`).join(', '),
           })}
         </span>
       )}

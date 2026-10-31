@@ -18,7 +18,7 @@ import { tribes, tribesSource, type TribeInfo } from '../../data/tribes';
 import { units } from '../../data/units';
 import { TRIBES, type Tribe } from '../../domain/types';
 import { useFormat, useL, useT } from '../../lib/i18n';
-import { buildingById } from '../buildings/buildingIndex';
+import { buildingById, buildingName } from '../buildings/buildingIndex';
 import styles from './Tribes.module.css';
 
 type TribeFilter = Tribe | 'all';
@@ -62,7 +62,7 @@ function Comparison() {
       label: t('tribes.merchantSpeed'),
       value: (i) => t('common.fieldsPerHour', { n: fmt.number(i.merchant.speed) }),
     },
-    { label: t('tribes.wall'), value: (i) => i.wall.name },
+    { label: t('tribes.wall'), value: (i) => l(buildingName(i.wall.id)) },
     { label: t('tribes.heroBonus'), value: (i) => l(i.heroBonus) },
     { label: t('tribes.troops'), value: (i) => l(i.troops) },
     { label: t('tribes.recommendedFor'), value: (i) => l(i.recommendedFor) },
@@ -125,7 +125,11 @@ function TribeDetail({ info }: { readonly info: TribeInfo }) {
           label={t('tribes.merchantSpeed')}
           value={t('common.fieldsPerHour', { n: fmt.number(info.merchant.speed) })}
         />
-        <Stat icon="walls" label={t('tribes.wall')} value={<Link to="/walls">{info.wall.name}</Link>} />
+        <Stat
+          icon="walls"
+          label={t('tribes.wall')}
+          value={<Link to="/walls">{l(buildingName(info.wall.id))}</Link>}
+        />
       </StatGrid>
 
       <Callout title={t('tribes.heroBonus')}>
@@ -162,11 +166,11 @@ function TribeDetail({ info }: { readonly info: TribeInfo }) {
             <li key={b.id}>
               {buildingById.has(b.id) ? (
                 <Link to={`/buildings/${b.id}`} className={styles.specialName}>
-                  {b.name}
+                  {l(buildingName(b.id))}
                   <Icon name="arrowRight" size={16} />
                 </Link>
               ) : (
-                <span className={styles.specialName}>{b.name}</span>
+                <span className={styles.specialName}>{l(buildingName(b.id))}</span>
               )}
               <p>{l(b.summary)}</p>
             </li>

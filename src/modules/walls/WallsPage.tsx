@@ -13,7 +13,7 @@ import { tribes, tribesSource } from '../../data/tribes';
 import { cumulativeTotals } from '../../domain/cumulative';
 import { TRIBES, type Tribe } from '../../domain/types';
 import { useFormat, useL, useT } from '../../lib/i18n';
-import { buildingById } from '../buildings/buildingIndex';
+import { buildingById, buildingName } from '../buildings/buildingIndex';
 import styles from './Walls.module.css';
 
 const WALL_ID: Record<Tribe, string> = { roman: 'city-wall', gaul: 'palisade', teuton: 'earth-wall' };
@@ -88,8 +88,8 @@ export function WallsPage() {
         options={TRIBES.map((tr) => ({
           value: tr,
           tribe: tr,
-          label: buildingById.get(WALL_ID[tr])?.name ?? tr,
-          ariaLabel: `${buildingById.get(WALL_ID[tr])?.name} – ${t(`tribe.${tr}`)}`,
+          label: l(buildingName(WALL_ID[tr])),
+          ariaLabel: `${l(buildingName(WALL_ID[tr]))} – ${t(`tribe.${tr}`)}`,
         }))}
       />
 
@@ -97,7 +97,7 @@ export function WallsPage() {
         <Card
           title={
             <span className={styles.wallTitle}>
-              {wall.name}
+              {l(wall.name)}
               <Badge tribe={tribe}>{t(`tribe.${tribe}`)}</Badge>
             </span>
           }
@@ -148,7 +148,7 @@ export function WallsPage() {
             return (
               <li key={tr} data-current={tr === tribe || undefined}>
                 <span className={styles.barName}>
-                  {buildingById.get(WALL_ID[tr])?.name}
+                  {l(buildingName(WALL_ID[tr]))}
                   <span className={styles.barTribe}>{t(`tribe.${tr}`)}</span>
                 </span>
                 <span className={styles.barTrack}>
@@ -177,7 +177,7 @@ export function WallsPage() {
         </summary>
         {wall && (
           <DataTable
-            caption={t('walls.tableCaption', { name: wall.name })}
+            caption={t('walls.tableCaption', { name: l(wall.name) })}
             columns={columns}
             rows={levels}
             rowKey={(lv) => String(lv.lvl)}

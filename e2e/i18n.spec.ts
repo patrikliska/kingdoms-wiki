@@ -52,4 +52,11 @@ test.describe('Czech browser abroad', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'Units' })).toBeVisible();
     await expect(page.getByText('Attack').first()).toBeVisible();
   });
+
+  test('building names follow the language', async ({ page }) => {
+    await page.goto('/buildings/main-building');
+    await expect(page.getByRole('heading', { level: 1, name: 'Hlavní budova' })).toBeVisible();
+    await page.getByRole('banner').getByRole('button', { name: 'EN', exact: true }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Main Building' })).toBeVisible();
+  });
 });
